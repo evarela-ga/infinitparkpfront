@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="i18n.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A1622}
+  ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#1E3048;border-radius:8px}
+</style>
+</helmet>
+
+<div style="font-family:Inter,system-ui,sans-serif;color:#E6EEF5;display:flex;min-height:100vh;background:#0A1622">
+
+  <aside style="width:260px;flex-shrink:0;background:#0D1B2A;border-right:1px solid #16263a;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto">
+    <div style="padding:22px 22px 16px"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito" style="height:32px;filter:brightness(0) invert(1)"></div>
+    <div style="display:flex;align-items:center;gap:11px;padding:12px 22px;margin:0 0 8px;border-top:1px solid #16263a;border-bottom:1px solid #16263a">
+      <span style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;flex-shrink:0">AD</span>
+      <div style="min-width:0"><div style="font-family:Poppins,sans-serif;font-weight:600;font-size:13.5px;color:#fff">Admin</div><div style="font-size:11.5px;color:#5E7790">Gerente General</div></div>
+    </div>
+    <nav style="flex:1;padding:8px 12px;display:flex;flex-direction:column;gap:2px">
+      <a href="backoffice-dashboard.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-layout-dashboard" style="font-size:19px"></i>Dashboard</a>
+      <a href="backoffice-acceso.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-door-enter" style="font-size:19px"></i>Control de acceso</a>
+      <a href="backoffice-estacionamiento.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-parking" style="font-size:19px"></i>Estacionamiento</a>
+      <a href="backoffice-tickets.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-ticket" style="font-size:19px"></i>Tickets &amp; Ventas</a>
+      <a href="backoffice-atracciones.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-rollercoaster" style="font-size:19px"></i>Atracciones</a>
+      <a href="backoffice-gastronomia.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:600;color:#29ABE2;background:rgba(41,171,226,.14);border-left:3px solid #29ABE2"><i class="ti ti-tools-kitchen-2" style="font-size:19px"></i>Gastronomía</a>
+      <a href="backoffice-crm.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-users" style="font-size:19px"></i>CRM</a>
+      <a href="backoffice-gamificacion.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-trophy" style="font-size:19px"></i>InfinitoPass</a>
+      <a href="backoffice-reportes.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-chart-line" style="font-size:19px"></i>Reportes</a>
+      <a href="backoffice-config.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-settings" style="font-size:19px"></i>Configuración</a>
+    </nav>
+    <div style="padding:12px;border-top:1px solid #16263a">
+      <a href="backoffice-login.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-logout" style="font-size:19px"></i>Cerrar sesión</a>
+    </div>
+  </aside>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <header style="position:sticky;top:0;z-index:30;background:#0F2034;border-bottom:1px solid #16263a;padding:14px clamp(16px,3vw,32px);display:flex;align-items:center;gap:18px">
+      <div style="position:relative;flex:1;max-width:420px"><i class="ti ti-search" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#56708a;font-size:18px"></i><input placeholder="Buscar visitante, ticket, patente…" style="width:100%;padding:11px 14px 11px 42px;border:1px solid #1E3048;border-radius:11px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"></div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:16px">
+        <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(45,189,126,.15);border:1px solid rgba(45,189,126,.3);color:#2DBD7E;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;padding:7px 13px;border-radius:999px"><span style="width:8px;height:8px;border-radius:50%;background:#2DBD7E"></span>Parque ABIERTO</span>
+        <span style="font-family:Inter;font-weight:700;font-size:14px;color:#9FB3C6;font-variant-numeric:tabular-nums">{{ clock }}</span>
+        <span style="position:relative;color:#9FB3C6;cursor:pointer"><i class="ti ti-bell" style="font-size:21px"></i><span style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:#FF5F5F;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span></span>
+        <span style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:13px">AD</span>
+      </div>
+    </header>
+
+    <main style="padding:clamp(18px,3vw,30px);display:flex;flex-direction:column;gap:22px">
+      <div><h1 style="margin:0;font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#fff">Gastronomía &amp; F&amp;B</h1><p style="margin:5px 0 0;color:#5E7790;font-size:14px">Consumo y operación gastronómica · Hoy</p></div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px">
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:18px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase">Ventas F&amp;B hoy</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#29ABE2;margin-top:6px;font-variant-numeric:tabular-nums">$128,4M</div><div style="font-size:12px;color:#2DBD7E;margin-top:3px">▲ 11% vs ayer</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:18px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase">Transacciones</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#fff;margin-top:6px;font-variant-numeric:tabular-nums">4.872</div><div style="font-size:12px;color:#5E7790;margin-top:3px">Ticket prom. $26.370</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:18px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase">Pulsera cashless</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#fff;margin-top:6px;font-variant-numeric:tabular-nums">69%</div><div style="font-size:12px;color:#5E7790;margin-top:3px">$89,2M del total</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:18px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase">Local top</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:22px;color:#fff;margin-top:6px">Mostaza</div><div style="font-size:12px;color:#5E7790;margin-top:3px">$38M · Combo Clásico 1.847u</div></div>
+      </div>
+
+      <!-- TABS -->
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
+          <button onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.name }}</button>
+        </sc-for>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start">
+        <!-- LOCAL STATS + STOCK -->
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:22px">
+            <h3 style="margin:0 0 16px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">{{ cur.name }}</h3>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+              <div><div style="font-size:11px;color:#5E7790;text-transform:uppercase">Ventas</div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#29ABE2;font-variant-numeric:tabular-nums">{{ cur.ventas }}</div></div>
+              <div><div style="font-size:11px;color:#5E7790;text-transform:uppercase">Transacciones</div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#fff;font-variant-numeric:tabular-nums">{{ cur.tx }}</div></div>
+            </div>
+          </div>
+          <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:22px">
+            <h3 style="margin:0 0 14px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;color:#fff;display:flex;align-items:center;gap:8px"><i class="ti ti-alert-triangle" style="color:#FF8C00;font-size:18px"></i>Stock crítico</h3>
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <sc-for list="{{ cur.stock }}" as="s" hint-placeholder-count="3">
+                <div><div style="display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:5px"><span style="color:#E6EEF5">{{ s.name }}</span><span style="color:{{ s.color }};font-weight:700">{{ s.pct }}</span></div><div style="height:7px;border-radius:999px;background:#16263a;overflow:hidden"><div style="height:100%;width:{{ s.pct }};background:{{ s.color }};border-radius:999px"></div></div></div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        <!-- PEDIDOS EN COLA -->
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:22px">
+          <h3 style="margin:0 0 16px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Pedidos en cola</h3>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ pedidos }}" as="p" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;gap:12px;background:#0A1622;border:1px solid #16263a;border-radius:12px;padding:13px 15px">
+                <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:13px;color:#5E7790;font-variant-numeric:tabular-nums">#{{ p.num }}</span>
+                <div style="flex:1"><div style="font-size:13.5px;color:#E6EEF5">{{ p.items }}</div><div style="font-size:11.5px;color:#5E7790">{{ p.local }}</div></div>
+                <span style="font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:999px;{{ p.style }}">{{ p.estado }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.now=()=>{ const loc=(window.InfinitoI18n&&window.InfinitoI18n.locale)||'es-AR'; return new Date().toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit',second:'2-digit'}); };
+    this.LOCALS=[
+      { name:'Novecento', ventas:'$31,2M', tx:'982', stock:[{name:'Ojo de bife',pct:'15%',crit:true},{name:'Pan de papa',pct:'28%'},{name:'Vino tinto',pct:'42%'}] },
+      { name:'Mostaza', ventas:'$38,0M', tx:'1.847', stock:[{name:'Pan de hamburguesa',pct:'12%',crit:true},{name:'Papas congeladas',pct:'19%',crit:true},{name:'Gaseosa cola',pct:'55%'}] },
+      { name:'Betos', ventas:'$24,6M', tx:'904', stock:[{name:'Lomo',pct:'22%'},{name:'Chorizo',pct:'9%',crit:true},{name:'Pan francés',pct:'48%'}] },
+      { name:'Barilate', ventas:'$18,1M', tx:'760', stock:[{name:'Helado chocolate',pct:'17%',crit:true},{name:'Vasos',pct:'33%'},{name:'Café en grano',pct:'61%'}] },
+      { name:'Kioscos', ventas:'$16,5M', tx:'379', stock:[{name:'Agua 500ml',pct:'14%',crit:true},{name:'Protector solar',pct:'25%'},{name:'Snacks',pct:'52%'}] }
+    ];
+    this.pedidos=[
+      { num:'1042', items:'2x Combo Clásico, 1x Gaseosa', local:'Mostaza', estado:'Preparando' },
+      { num:'1041', items:'1x Lomito completo', local:'Betos', estado:'Listo' },
+      { num:'1040', items:'3x Helado 1/4', local:'Barilate', estado:'Entregado' },
+      { num:'1039', items:'1x Ojo de bife, 2x Agua', local:'Novecento', estado:'Preparando' },
+      { num:'1038', items:'1x Combo Crispy', local:'Mostaza', estado:'Listo' }
+    ];
+    this.state={ clock:this.now(), tab:1 };
+  }
+  componentDidMount(){ this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang', this._lh); this._t=setInterval(()=>this.setState({clock:this.now()}),1000); }
+  componentWillUnmount(){ clearInterval(this._t); window.removeEventListener('infinito:lang', this._lh); }
+  renderVals(){
+    const tabBtn=(on)=>'padding:9px 18px;border-radius:999px;border:1px solid '+(on?'#29ABE2':'#1E3048')+';background:'+(on?'rgba(41,171,226,.14)':'#0F2034')+';color:'+(on?'#29ABE2':'#9FB3C6')+';font-family:Poppins,sans-serif;font-weight:600;font-size:13.5px;cursor:pointer';
+    const estStyle=(e)=> e==='Preparando'?'background:rgba(255,184,0,.15);color:#FFB800':(e==='Listo'?'background:rgba(45,189,126,.15);color:#2DBD7E':'background:rgba(94,119,144,.18);color:#9FB3C6');
+    const cur=this.LOCALS[this.state.tab];
+    return {
+      clock:this.state.clock,
+      tabs:this.LOCALS.map((l,i)=>({ name:l.name, pick:()=>this.setState({tab:i}), style:tabBtn(this.state.tab===i) })),
+      cur:{ name:cur.name, ventas:cur.ventas, tx:cur.tx, stock:cur.stock.map(s=>({ name:s.name, pct:s.pct, color: s.crit?'#FF5F5F':(parseInt(s.pct)<35?'#FFB800':'#2DBD7E') })) },
+      pedidos:this.pedidos.map(p=>({ num:p.num, items:p.items, local:p.local, estado:p.estado, style:estStyle(p.estado) }))
+    };
+  }
+}
+</script>
+</body>
+</html>

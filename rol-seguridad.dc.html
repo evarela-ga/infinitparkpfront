@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="i18n.js"></script>
+<style>*{box-sizing:border-box}body{margin:0;background:#0D1B2A}@keyframes pulseRed{0%,100%{box-shadow:0 0 0 0 rgba(255,95,95,.5)}50%{box-shadow:0 0 0 12px rgba(255,95,95,0)}}</style>
+</helmet>
+
+<div style="font-family:Inter,system-ui,sans-serif;color:#fff;min-height:100vh;background:radial-gradient(circle at 50% 0%,#15324d,#0D1B2A);padding:22px clamp(16px,3vw,30px)">
+  <div style="max-width:1000px;margin:0 auto">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px">
+      <div style="display:flex;align-items:center;gap:14px"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito" style="height:30px;filter:brightness(0) invert(1)"><div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:20px">Seguridad &amp; Emergencias</div><div style="font-size:12.5px;color:#9FB3C6">Central de monitoreo · {{ clock }}</div></div></div>
+      <span style="display:inline-flex;align-items:center;gap:8px;{{ globalStyle }};font-family:Poppins,sans-serif;font-weight:700;font-size:13px;padding:8px 15px;border-radius:999px"><span style="width:8px;height:8px;border-radius:50%;background:{{ globalDot }}"></span>{{ globalLabel }}</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:24px">
+      <sc-for list="{{ zones }}" as="z" hint-placeholder-count="6">
+        <div style="background:#0F2034;border:1px solid {{ z.border }};border-radius:16px;padding:18px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:15px">{{ z.name }}</span><span style="display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;color:{{ z.color }}"><span style="width:7px;height:7px;border-radius:50%;background:{{ z.color }}"></span>{{ z.estado }}</span></div>
+          <div style="font-size:12px;color:#5E7790;margin-bottom:14px">{{ z.guardias }} guardias · {{ z.personas }} personas</div>
+          <button onClick="{{ z.alert }}" style="width:100%;background:{{ z.btnBg }};color:{{ z.btnColor }};border:1px solid {{ z.btnBorder }};border-radius:10px;padding:11px;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;{{ z.btnAnim }}"><i class="ti {{ z.btnIcon }}" style="font-size:17px"></i>{{ z.btnLabel }}</button>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:20px">
+        <h3 style="margin:0 0 14px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px">Comunicaciones</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;max-height:200px;overflow:auto">
+          <sc-for list="{{ comms }}" as="c" hint-placeholder-count="4">
+            <div style="display:flex;gap:10px;font-size:13px"><span style="color:#29ABE2;font-weight:700;white-space:nowrap">{{ c.from }}</span><span style="flex:1;color:#C7D5E2">{{ c.msg }}</span><span style="color:#5E7790;font-variant-numeric:tabular-nums">{{ c.time }}</span></div>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:14px"><input value="{{ msg }}" onInput="{{ onMsg }}" placeholder="Mensaje a todas las zonas…" style="flex:1;min-width:0;padding:11px 14px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#fff;font-family:Inter;font-size:13.5px;outline:none"><button onClick="{{ send }}" style="background:#29ABE2;color:#fff;border:none;border-radius:10px;padding:0 16px;cursor:pointer"><i class="ti ti-send" style="font-size:18px"></i></button></div>
+      </div>
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:20px">
+        <h3 style="margin:0 0 14px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px">Protocolo de evacuación</h3>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:24px;height:24px;border-radius:50%;background:#142a40;color:#29ABE2;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0">1</span><span style="font-size:13.5px;color:#C7D5E2;line-height:1.5">Activar alarma sonora y detener todas las atracciones.</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:24px;height:24px;border-radius:50%;background:#142a40;color:#29ABE2;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0">2</span><span style="font-size:13.5px;color:#C7D5E2;line-height:1.5">Guiar a los visitantes a los puntos de encuentro señalizados.</span></div>
+          <div style="display:flex;gap:11px;align-items:flex-start"><span style="width:24px;height:24px;border-radius:50%;background:#142a40;color:#29ABE2;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;flex-shrink:0">3</span><span style="font-size:13.5px;color:#C7D5E2;line-height:1.5">Confirmar evacuación por zona y reportar a central.</span></div>
+        </div>
+        <button style="width:100%;margin-top:16px;background:#142a40;color:#9FB3C6;border:1px solid #1E3048;border-radius:11px;padding:12px;font-family:Poppins,sans-serif;font-weight:600;font-size:13.5px;cursor:pointer">Ver protocolo completo</button>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.now=()=>{ const loc=(window.InfinitoI18n&&window.InfinitoI18n.locale)||'es-AR'; return new Date().toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit'}); };
+    this.ZN=[
+      { id:0, name:'Zona de Olas', guardias:6, personas:842 },
+      { id:1, name:'Chuncanas', guardias:4, personas:410 },
+      { id:2, name:'Cala Ansenuza', guardias:3, personas:280 },
+      { id:3, name:'Uritorkia', guardias:5, personas:520 },
+      { id:4, name:'La Noria', guardias:3, personas:190 },
+      { id:5, name:'Zona VIP', guardias:2, personas:96 }
+    ];
+    this.state={ clock:this.now(), states:this.ZN.map(()=>'normal'), comms:[
+      { from:'Guardavidas Olas', msg:'Todo en orden en pileta de olas.', time:'14:31' },
+      { from:'Central', msg:'Recordatorio: cambio de turno 15:00.', time:'14:20' },
+      { from:'Acceso Norte', msg:'Flujo normal de ingreso.', time:'14:05' }
+    ], msg:'' };
+  }
+  componentDidMount(){ this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang', this._lh); this._t=setInterval(()=>this.setState({clock:this.now()}),1000); }
+  componentWillUnmount(){ clearInterval(this._t); window.removeEventListener('infinito:lang', this._lh); }
+  renderVals(){
+    const sts=this.state.states;
+    const any=sts.some(s=>s==='emerg'); const anyAlert=sts.some(s=>s==='alert');
+    const meta=(s)=> s==='emerg'?{estado:'Emergencia',color:'#FF5F5F',border:'rgba(255,95,95,.5)'}:(s==='alert'?{estado:'Alerta',color:'#FFB800',border:'rgba(255,184,0,.4)'}:{estado:'Normal',color:'#2DBD7E',border:'#1E3048'});
+    const zones=this.ZN.map((z,i)=>{ const m=meta(sts[i]); const on=sts[i]==='emerg'; return {
+      name:z.name, guardias:z.guardias, personas:z.personas, estado:m.estado, color:m.color, border:m.border,
+      btnBg:on?'linear-gradient(135deg,#FF5F5F,#C23A3A)':'#142a40', btnColor:on?'#fff':'#FF7A7A', btnBorder:on?'transparent':'rgba(255,95,95,.3)',
+      btnIcon:on?'ti-urgent':'ti-alert-triangle', btnLabel:on?'Emergencia activa':'Activar alerta', btnAnim:on?'animation:pulseRed 2s infinite':'',
+      alert:()=>this.setState(st=>{ const s=[...st.states]; s[i]= s[i]==='emerg'?'normal':'emerg'; return {states:s}; })
+    };});
+    const g = any?{globalLabel:'EMERGENCIA ACTIVA',globalDot:'#FF5F5F',globalStyle:'background:rgba(255,95,95,.15);border:1px solid rgba(255,95,95,.4);color:#FF7A7A'}:(anyAlert?{globalLabel:'Alerta',globalDot:'#FFB800',globalStyle:'background:rgba(255,184,0,.15);border:1px solid rgba(255,184,0,.4);color:#FFB800'}:{globalLabel:'Todo normal',globalDot:'#2DBD7E',globalStyle:'background:rgba(45,189,126,.15);border:1px solid rgba(45,189,126,.35);color:#2DBD7E'});
+    return {
+      clock:this.state.clock, zones, comms:this.state.comms,
+      globalLabel:g.globalLabel, globalDot:g.globalDot, globalStyle:g.globalStyle,
+      msg:this.state.msg, onMsg:(e)=>this.setState({msg:e.target.value}),
+      send:()=>{ const t=this.state.msg.trim(); if(!t)return; this.setState(s=>({ comms:[{from:'Central',msg:t,time:this.now()},...s.comms], msg:'' })); }
+    };
+  }
+}
+</script>
+</body>
+</html>

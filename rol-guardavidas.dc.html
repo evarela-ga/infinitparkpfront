@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="i18n.js"></script>
+<style>*{box-sizing:border-box}body{margin:0;background:#0D1B2A}</style>
+</helmet>
+
+<div style="font-family:Inter,system-ui,sans-serif;color:#fff;min-height:100vh;background:radial-gradient(circle at 50% 0%,#15324d,#0D1B2A);padding:22px clamp(16px,3vw,30px)">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px">
+      <div style="display:flex;align-items:center;gap:14px"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito" style="height:30px;filter:brightness(0) invert(1)"><div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:20px">Puesto Guardavidas</div><div style="font-size:12.5px;color:#9FB3C6">Piscina de Olas · Carla M. · {{ clock }}</div></div></div>
+      <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(45,189,126,.15);border:1px solid rgba(45,189,126,.35);color:#2DBD7E;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;padding:8px 15px;border-radius:999px"><span style="width:8px;height:8px;border-radius:50%;background:#2DBD7E"></span>En servicio</span>
+    </div>
+
+    <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:22px;margin-bottom:18px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><h3 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:17px">Capacidad de mi zona</h3><span style="font-family:Poppins,sans-serif;font-weight:800;font-size:18px;color:{{ capColor }};font-variant-numeric:tabular-nums">{{ personas }} / 2.500</span></div>
+      <div style="height:14px;border-radius:999px;background:#16263a;overflow:hidden"><div style="height:100%;width:{{ capPct }};background:{{ capColor }};border-radius:999px;transition:width .6s"></div></div>
+      <div style="display:flex;justify-content:space-between;font-size:12.5px;color:#5E7790;margin-top:8px"><span>{{ capPct }} de ocupación</span><span>{{ capState }}</span></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <button onClick="{{ openRep }}" style="background:linear-gradient(135deg,#29ABE2,#1A7DAF);color:#fff;border:none;border-radius:16px;padding:24px;font-family:Poppins,sans-serif;font-weight:800;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px"><i class="ti ti-clipboard-plus" style="font-size:26px"></i>Reportar incidente</button>
+        <button onClick="{{ rescate }}" style="background:linear-gradient(135deg,#FF8C00,#FF6B00);color:#fff;border:none;border-radius:16px;padding:24px;font-family:Poppins,sans-serif;font-weight:800;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px"><i class="ti ti-lifebuoy" style="font-size:26px"></i>Solicitar apoyo</button>
+        <button onClick="{{ emerg }}" style="background:linear-gradient(135deg,#FF5F5F,#C23A3A);color:#fff;border:none;border-radius:16px;padding:24px;font-family:Poppins,sans-serif;font-weight:800;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px"><i class="ti ti-urgent" style="font-size:26px"></i>Emergencia</button>
+      </div>
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:20px">
+        <h3 style="margin:0 0 14px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px">Alertas y mensajes</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;max-height:260px;overflow:auto">
+          <sc-for list="{{ alerts }}" as="a" hint-placeholder-count="4">
+            <div style="display:flex;gap:10px;align-items:flex-start"><i class="ti {{ a.icon }}" style="font-size:18px;color:{{ a.color }};flex-shrink:0;margin-top:1px"></i><div style="flex:1"><div style="font-size:13.5px;color:#E6EEF5">{{ a.text }}</div><div style="font-size:11.5px;color:#5E7790">{{ a.time }}</div></div></div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <sc-if value="{{ repOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeRep }}" style="position:fixed;inset:0;z-index:200;background:rgba(5,12,20,.7);display:flex;align-items:center;justify-content:center;padding:20px">
+      <div onClick="{{ stop }}" style="background:#0F2034;border:1px solid #1E3048;border-radius:20px;max-width:420px;width:100%;padding:26px">
+        <h3 style="margin:0 0 16px;font-family:Poppins,sans-serif;font-weight:800;font-size:20px">Reportar incidente</h3>
+        <sc-if value="{{ repDone }}" hint-placeholder-val="{{ false }}"><div style="background:rgba(45,189,126,.12);border:1px solid rgba(45,189,126,.3);color:#2DBD7E;border-radius:12px;padding:16px;font-size:14px;display:flex;align-items:center;gap:9px"><i class="ti ti-check" style="font-size:19px"></i>Incidente reportado a central. Apoyo en camino.</div></sc-if>
+        <sc-if value="{{ repForm }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <select style="width:100%;padding:12px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none;margin-bottom:12px"><option>Tipo: Médico leve</option><option>Tipo: Rescate acuático</option><option>Tipo: Conducta / seguridad</option><option>Tipo: Otro</option></select>
+            <textarea rows="3" placeholder="Describí la situación…" style="width:100%;padding:12px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none;resize:vertical;margin-bottom:16px"></textarea>
+            <div style="display:flex;gap:10px"><button onClick="{{ closeRep }}" style="flex:1;background:#142a40;color:#9FB3C6;border:1px solid #1E3048;border-radius:10px;padding:12px;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;cursor:pointer">Cancelar</button><button onClick="{{ submitRep }}" style="flex:1;background:linear-gradient(135deg,#29ABE2,#1A7DAF);color:#fff;border:none;border-radius:10px;padding:12px;font-family:Poppins,sans-serif;font-weight:700;font-size:14px;cursor:pointer">Enviar reporte</button></div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.now=()=>{ const loc=(window.InfinitoI18n&&window.InfinitoI18n.locale)||'es-AR'; return new Date().toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit'}); };
+    this.state={ clock:this.now(), personas:1680, rep:null, alerts:[
+      { icon:'ti-info-circle', color:'#29ABE2', text:'Central: rotación de turno en 25 min.', time:'14:30' },
+      { icon:'ti-alert-triangle', color:'#FFB800', text:'Ocupación creciente en sector oeste.', time:'14:18' },
+      { icon:'ti-circle-check', color:'#2DBD7E', text:'Control de cloro OK.', time:'13:50' }
+    ] };
+  }
+  componentDidMount(){ this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang', this._lh); this._t=setInterval(()=>this.setState({clock:this.now()}),1000); }
+  componentWillUnmount(){ clearInterval(this._t); window.removeEventListener('infinito:lang', this._lh); }
+  add(icon,color,text){ this.setState(s=>({ alerts:[{icon,color,text,time:this.now()},...s.alerts] })); }
+  renderVals(){
+    const pct=Math.round(this.state.personas/2500*100);
+    const capColor=pct>=85?'#FF5F5F':(pct>=65?'#FFB800':'#2DBD7E');
+    return {
+      clock:this.state.clock, personas:this.state.personas.toLocaleString('es-AR'),
+      capPct:pct+'%', capColor, capState:pct>=85?'Alta':(pct>=65?'Moderada':'Normal'),
+      openRep:()=>this.setState({rep:'form'}), closeRep:()=>this.setState({rep:null}), stop:(e)=>e.stopPropagation(),
+      repOpen:this.state.rep!==null, repForm:this.state.rep==='form', repDone:this.state.rep==='done',
+      submitRep:()=>{ this.setState({rep:'done'}); this.add('ti-clipboard-plus','#29ABE2','Incidente reportado a central'); setTimeout(()=>{try{this.setState({rep:null});}catch(e){}},1800); },
+      rescate:()=>this.add('ti-lifebuoy','#FF8C00','Apoyo solicitado a zona contigua'),
+      emerg:()=>this.add('ti-urgent','#FF5F5F','EMERGENCIA enviada a central y seguridad'),
+      alerts:this.state.alerts
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="i18n.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#F0F6FA}
+  input::placeholder{color:#A9BECE}
+  input:focus{border-color:#29ABE2 !important}
+</style>
+</helmet>
+
+<div style="--c1:#29ABE2;--deep:#1A7DAF;--dark:#1A3A5C;font-family:Inter,system-ui,sans-serif;color:#0D1B2A;min-height:100vh">
+
+  <!-- NAV -->
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:14px clamp(20px,4vw,48px);background:#fff;box-shadow:0 2px 16px rgba(26,58,92,.06)">
+    <a href="index.dc.html" style="display:flex;align-items:center;text-decoration:none">
+      <img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito Water Park" style="height:38px;width:auto;display:block">
+    </a>
+    <a href="tickets.dc.html" style="text-decoration:none;color:#8EA9BE;font-size:14px;display:flex;align-items:center;gap:6px"><i class="ti ti-arrow-left"></i>Volver a entradas</a>
+  </nav>
+
+  <!-- WIZARD STEPS -->
+  <div style="background:#fff;padding:24px clamp(20px,5vw,64px);border-bottom:1px solid #EEF4F8">
+    <div style="max-width:680px;margin:0 auto;display:flex;align-items:flex-start">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0;width:80px">
+        <div style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:15px;{{ dot1 }}"><i class="ti ti-check" style="{{ check1 }}"></i><span style="{{ num1 }}">1</span></div>
+        <span style="font-size:12.5px;font-weight:600;text-align:center;{{ lbl1 }}">Tus datos</span>
+      </div>
+      <div style="flex:1;height:2px;margin:18px 4px 0;background:{{ bar1 }}"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0;width:80px">
+        <div style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:15px;{{ dot2 }}"><i class="ti ti-check" style="{{ check2 }}"></i><span style="{{ num2 }}">2</span></div>
+        <span style="font-size:12.5px;font-weight:600;text-align:center;{{ lbl2 }}">Visitantes</span>
+      </div>
+      <div style="flex:1;height:2px;margin:18px 4px 0;background:{{ bar2 }}"></div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0;width:80px">
+        <div style="width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:15px;{{ dot3 }}"><span style="{{ num3 }}">3</span></div>
+        <span style="font-size:12.5px;font-weight:600;text-align:center;{{ lbl3 }}">Pago</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:680px;margin:0 auto;padding:34px clamp(20px,5vw,40px) 90px">
+
+    <!-- STEP 1 -->
+    <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#fff;border-radius:20px;padding:30px;box-shadow:0 4px 24px rgba(26,58,92,.08)">
+        <h2 style="margin:0 0 6px;font-family:Poppins,sans-serif;font-weight:700;font-size:22px;color:#1A3A5C">Tus datos</h2>
+        <p style="margin:0 0 24px;color:#8EA9BE;font-size:14.5px">Usamos estos datos para enviarte tus entradas con QR.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <label style="grid-column:span 2;display:flex;flex-direction:column;gap:7px"><span style="font-size:13px;font-weight:600;color:#3D5166">Nombre completo</span><input value="{{ b.nombre }}" onInput="{{ onNombre }}" placeholder="Ej: María González" style="padding:13px 15px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:15px;outline:none"></label>
+          <label style="display:flex;flex-direction:column;gap:7px"><span style="font-size:13px;font-weight:600;color:#3D5166">Email</span><input value="{{ b.email }}" onInput="{{ onEmail }}" placeholder="vos@email.com" style="padding:13px 15px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:15px;outline:none"></label>
+          <label style="display:flex;flex-direction:column;gap:7px"><span style="font-size:13px;font-weight:600;color:#3D5166">WhatsApp</span><input value="{{ b.whatsapp }}" onInput="{{ onWa }}" placeholder="+54 9 351 ..." style="padding:13px 15px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:15px;outline:none"></label>
+          <label style="grid-column:span 2;display:flex;flex-direction:column;gap:7px"><span style="font-size:13px;font-weight:600;color:#3D5166">DNI</span><input value="{{ b.dni }}" onInput="{{ onDni }}" placeholder="34.567.890" style="padding:13px 15px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:15px;outline:none"></label>
+        </div>
+        <label onClick="{{ toggleAcct }}" style="display:flex;align-items:center;gap:12px;margin-top:22px;padding:16px;border-radius:12px;background:#F4FBFE;border:1px solid #DDEAF2;cursor:pointer">
+          <span style="width:22px;height:22px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1.5px solid {{ acctBorder }};background:{{ acctBg }}"><i class="ti ti-check" style="font-size:14px;color:#fff;{{ acctCheck }}"></i></span>
+          <span style="font-size:14px;color:#1A3A5C">Quiero crear una cuenta para guardar mis tickets y sumar puntos <strong style="color:#1A7DAF">InfinitoPass</strong></span>
+        </label>
+        <div style="margin-top:14px;padding:14px 16px;border-radius:12px;background:#FFF6E9;font-size:13.5px;color:#8a5a00;display:flex;align-items:center;gap:8px"><i class="ti ti-info-circle"></i>¿Ya tenés cuenta? <a href="mi-cuenta.dc.html" style="color:#1A7DAF;font-weight:600;text-decoration:none">Iniciá sesión</a></div>
+        <button onClick="{{ next }}" style="margin-top:26px;width:100%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);color:#fff;border:none;border-radius:12px;padding:15px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px">Continuar <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </sc-if>
+
+    <!-- STEP 2 -->
+    <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#fff;border-radius:20px;padding:30px;box-shadow:0 4px 24px rgba(26,58,92,.08)">
+        <h2 style="margin:0 0 6px;font-family:Poppins,sans-serif;font-weight:700;font-size:22px;color:#1A3A5C">Datos de los visitantes</h2>
+        <p style="margin:0 0 20px;color:#8EA9BE;font-size:14.5px">Nombre y DNI de cada visitante para el sistema de acceso con QR.</p>
+        <label onClick="{{ toggleTitular }}" style="display:flex;align-items:center;gap:12px;margin-bottom:20px;padding:14px 16px;border-radius:12px;background:#F4FBFE;border:1px solid #DDEAF2;cursor:pointer">
+          <span style="width:22px;height:22px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1.5px solid {{ titBorder }};background:{{ titBg }}"><i class="ti ti-check" style="font-size:14px;color:#fff;{{ titCheck }}"></i></span>
+          <span style="font-size:14px;color:#1A3A5C">El titular de la compra es uno de los visitantes</span>
+        </label>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <sc-for list="{{ visitors }}" as="v" hint-placeholder-count="2">
+            <div style="border:1px solid #EEF4F8;border-radius:14px;padding:18px">
+              <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:14px;color:#1A7DAF;margin-bottom:14px;display:flex;align-items:center;gap:8px"><i class="ti ti-user"></i>Visitante {{ v.n }}</div>
+              <div style="display:grid;grid-template-columns:1fr 170px;gap:12px">
+                <input value="{{ v.nombre }}" onInput="{{ v.onName }}" placeholder="Nombre y apellido" style="padding:12px 14px;border:1px solid #DDEAF2;border-radius:10px;font-family:Inter;font-size:14.5px;outline:none">
+                <input value="{{ v.dni }}" onInput="{{ v.onDni }}" placeholder="DNI" style="padding:12px 14px;border:1px solid #DDEAF2;border-radius:10px;font-family:Inter;font-size:14.5px;outline:none">
+              </div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:26px">
+          <button onClick="{{ back }}" style="flex:0 0 auto;background:#F0F6FA;color:#1A7DAF;border:1px solid #DDEAF2;border-radius:12px;padding:15px 22px;font-family:Poppins,sans-serif;font-weight:600;font-size:15px;cursor:pointer">Atrás</button>
+          <button onClick="{{ next }}" style="flex:1;background:linear-gradient(135deg,#29ABE2,#1A7DAF);color:#fff;border:none;border-radius:12px;padding:15px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px">Continuar al pago <i class="ti ti-arrow-right"></i></button>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- STEP 3 -->
+    <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#fff;border-radius:20px;padding:30px;box-shadow:0 4px 24px rgba(26,58,92,.08)">
+        <h2 style="margin:0 0 20px;font-family:Poppins,sans-serif;font-weight:700;font-size:22px;color:#1A3A5C">Pago</h2>
+        <div style="display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap">
+          <button onClick="{{ mTarjeta }}" style="{{ tabTarjeta }}"><i class="ti ti-credit-card" style="font-size:18px"></i>Tarjeta</button>
+          <button onClick="{{ mMp }}" style="{{ tabMp }}"><i class="ti ti-wallet" style="font-size:18px"></i>Mercado Pago</button>
+          <button onClick="{{ mTransfer }}" style="{{ tabTransfer }}"><i class="ti ti-building-bank" style="font-size:18px"></i>Transferencia</button>
+        </div>
+
+        <sc-if value="{{ isTarjeta }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="perspective:1200px;margin:0 auto 24px;max-width:380px">
+              <div style="position:relative;width:100%;aspect-ratio:1.586;transition:transform .6s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d;transform:{{ cardTransform }}">
+                <div style="position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;padding:24px;background:linear-gradient(135deg,#1A7DAF,#0D1B2A);color:#fff;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 14px 40px rgba(13,27,42,.35)">
+                  <div style="display:flex;justify-content:space-between;align-items:center"><div style="width:46px;height:34px;border-radius:7px;background:linear-gradient(135deg,#E6C257,#B8902F)"></div><i class="ti ti-wifi" style="font-size:24px;transform:rotate(90deg);opacity:.8"></i></div>
+                  <div style="font-family:Inter;font-weight:700;font-size:21px;letter-spacing:2px;font-variant-numeric:tabular-nums">{{ cardNumberDisplay }}</div>
+                  <div style="display:flex;justify-content:space-between;align-items:flex-end"><div><div style="font-size:9px;opacity:.6;letter-spacing:.08em">TITULAR</div><div style="font-size:13.5px;font-weight:600;text-transform:uppercase">{{ cardNameDisplay }}</div></div><div><div style="font-size:9px;opacity:.6;letter-spacing:.08em">VENCE</div><div style="font-size:13.5px;font-weight:600">{{ cardExpDisplay }}</div></div></div>
+                </div>
+                <div style="position:absolute;inset:0;backface-visibility:hidden;transform:rotateY(180deg);border-radius:18px;background:linear-gradient(135deg,#1A7DAF,#0D1B2A);color:#fff;display:flex;flex-direction:column;box-shadow:0 14px 40px rgba(13,27,42,.35);overflow:hidden">
+                  <div style="height:44px;background:#0a131d;margin-top:22px"></div>
+                  <div style="padding:18px 24px"><div style="background:#fff;height:38px;border-radius:5px;display:flex;align-items:center;justify-content:flex-end;padding:0 12px;color:#1A3A5C;font-weight:700;letter-spacing:2px">{{ cardCvvDisplay }}</div><div style="font-size:10px;opacity:.6;margin-top:8px;text-align:right">Código de seguridad</div></div>
+                </div>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+              <label style="grid-column:span 2;display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#3D5166">Número de tarjeta</span><input value="{{ card.number }}" onInput="{{ onCardNum }}" inputmode="numeric" placeholder="0000 0000 0000 0000" style="padding:13px 15px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:15px;outline:none"></label>
+              <label style="grid-column:span 2;display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#3D5166">Nombre como figura en la tarjeta</span><input value="{{ card.name }}" onInput="{{ onCardName }}" placeholder="MARIA GONZALEZ" style="padding:13px 15px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:15px;outline:none;text-transform:uppercase"></label>
+              <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#3D5166">Vencimiento</span><input value="{{ card.exp }}" onInput="{{ onCardExp }}" inputmode="numeric" placeholder="MM/AA" style="padding:13px 15px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:15px;outline:none"></label>
+              <label style="display:flex;flex-direction:column;gap:6px"><span style="font-size:13px;font-weight:600;color:#3D5166">CVV</span><input value="{{ card.cvv }}" onInput="{{ onCardCvv }}" onFocus="{{ flipOn }}" onBlur="{{ flipOff }}" inputmode="numeric" placeholder="123" style="padding:13px 15px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:15px;outline:none"></label>
+            </div>
+            <div style="margin-top:22px">
+              <div style="font-size:13px;font-weight:600;color:#3D5166;margin-bottom:10px">Cuotas sin interés</div>
+              <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+                <sc-for list="{{ cuotaOpts }}" as="c" hint-placeholder-count="4">
+                  <button onClick="{{ c.pick }}" style="{{ c.style }}"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:16px">{{ c.n }}x</div><div style="font-size:11.5px;opacity:.85;font-variant-numeric:tabular-nums">{{ c.amt }}</div></button>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ isMp }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center;padding:34px 20px;border:1.5px dashed #DDEAF2;border-radius:14px"><i class="ti ti-wallet" style="font-size:42px;color:#29ABE2"></i><div style="font-family:Poppins,sans-serif;font-weight:600;color:#1A3A5C;margin-top:12px">Vas a pagar con Mercado Pago</div><div style="color:#8EA9BE;font-size:14px;margin-top:6px">Te redirigimos a tu cuenta para confirmar el pago de forma segura.</div></div>
+        </sc-if>
+        <sc-if value="{{ isTransfer }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:24px;border:1.5px dashed #DDEAF2;border-radius:14px;font-size:14.5px;color:#3D5166;line-height:1.9"><div style="font-family:Poppins,sans-serif;font-weight:700;color:#1A3A5C;margin-bottom:10px">Datos para transferencia</div>CBU: 0000003100012345678901<br>Alias: <strong>INFINITO.PARK.CBA</strong><br>Titular: Infinito Water Park S.A.<br><span style="color:#8EA9BE;font-size:13px">Enviá el comprobante por WhatsApp para confirmar tu reserva.</span></div>
+        </sc-if>
+
+        <div style="margin-top:24px;border-top:1px solid #EEF4F8;padding-top:20px">
+          <button onClick="{{ toggleSummary }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;background:#F0F6FA;border:none;border-radius:12px;padding:15px 18px;cursor:pointer;font-family:Poppins,sans-serif;font-weight:600;font-size:15px;color:#1A3A5C"><span>Resumen del pedido</span><span style="display:flex;align-items:center;gap:10px;font-family:Inter;font-weight:700;color:#0D1B2A">{{ totalStr }} <i class="ti ti-chevron-down" style="color:#29ABE2;transition:transform .25s;transform:{{ sumChev }}"></i></span></button>
+          <sc-if value="{{ summaryOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:16px 18px 4px">
+              <div style="font-size:13px;color:#8EA9BE;margin-bottom:10px">{{ dateLabel }}</div>
+              <sc-for list="{{ lineItems }}" as="li" hint-placeholder-count="2">
+                <div style="display:flex;justify-content:space-between;font-size:14px;padding:4px 0"><span style="color:#3D5166">{{ li.label }}</span><span style="font-weight:600;font-variant-numeric:tabular-nums">{{ li.amount }}</span></div>
+              </sc-for>
+            </div>
+          </sc-if>
+          <label onClick="{{ toggleTerms }}" style="display:flex;align-items:center;gap:11px;margin-top:18px;cursor:pointer"><span style="width:20px;height:20px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1.5px solid {{ termsBorder }};background:{{ termsBg }}"><i class="ti ti-check" style="font-size:13px;color:#fff;{{ termsCheck }}"></i></span><span style="font-size:13.5px;color:#3D5166">Acepto los <a href="#" style="color:#1A7DAF;text-decoration:none">términos y condiciones</a> y la <a href="#" style="color:#1A7DAF;text-decoration:none">política de privacidad</a></span></label>
+        </div>
+
+        <div style="display:flex;gap:12px;margin-top:24px">
+          <button onClick="{{ back }}" style="flex:0 0 auto;background:#F0F6FA;color:#1A7DAF;border:1px solid #DDEAF2;border-radius:12px;padding:15px 22px;font-family:Poppins,sans-serif;font-weight:600;font-size:15px;cursor:pointer">Atrás</button>
+          <button onClick="{{ confirm }}" style="flex:1;border:none;border-radius:12px;padding:15px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;{{ payBtn }}"><i class="ti ti-lock"></i>{{ payLabel }}</button>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const STATE_KEY = 'infinito_app_state';
+
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    let cart = { date:null, lineItems:[], total:0, tickets:{} };
+    try { const s = JSON.parse(localStorage.getItem(STATE_KEY)||'{}'); if (s.cart) cart = s.cart; } catch(e){}
+    this.cart = cart;
+    const t = cart.tickets || {};
+    let count = (t.funAd||0)+(t.funMe||0)+(t.plusAd||0)+(t.plusMe||0)+(t.vip||0);
+    if (!count) count = 1;
+    this.state = {
+      step:1,
+      buyer:{ nombre:'', email:'', whatsapp:'', dni:'', crearCuenta:true },
+      visitors: Array.from({length:count}, ()=>({ nombre:'', dni:'' })),
+      titular:false,
+      method:'tarjeta',
+      card:{ number:'', name:'', exp:'', cvv:'' },
+      flipped:false,
+      cuotas:12,
+      terms:false,
+      summaryOpen:false
+    };
+  }
+
+  fmt(n){ return '$' + Math.round(n).toLocaleString('es-AR'); }
+  i18(s){ return (window.InfinitoI18n&&window.InfinitoI18n.t)?window.InfinitoI18n.t(s):s; }
+  lang(){ return (window.InfinitoI18n&&window.InfinitoI18n.lang)||'es'; }
+  loc(){ return (window.InfinitoI18n&&window.InfinitoI18n.locale)||'es-AR'; }
+  labelFor(i){ if(!i||i.label!==undefined&&i.base===undefined) return i.label; if(i.isAddon) return this.i18(i.base); const r=i.role?(' '+this.i18(i.role)):''; return i.qty+'x '+i.base+r; }
+  componentDidMount(){ this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang', this._lh); }
+  componentWillUnmount(){ if(this._lh) window.removeEventListener('infinito:lang', this._lh); }
+  setBuyer(f,v){ this.setState(s=>({ buyer:{...s.buyer,[f]:v} })); }
+  setCard(f,v){ this.setState(s=>({ card:{...s.card,[f]:v} })); }
+  setVisitor(i,f,v){ this.setState(s=>({ visitors:s.visitors.map((x,j)=>j===i?{...x,[f]:v}:x) })); }
+  go(step){ this.setState({step}); window.scrollTo(0,0); }
+
+  applyTitular(){
+    this.setState(s=>{
+      const on=!s.titular;
+      let vis=s.visitors;
+      if (on) vis = s.visitors.map((x,i)=> i===0 ? { nombre:s.buyer.nombre, dni:s.buyer.dni } : x);
+      return { titular:on, visitors:vis };
+    });
+  }
+
+  fmtCardNum(v){ const d=v.replace(/\D/g,'').slice(0,16); return d.replace(/(.{4})/g,'$1 ').trim(); }
+  fmtExp(v){ const d=v.replace(/\D/g,'').slice(0,4); return d.length>2 ? d.slice(0,2)+'/'+d.slice(2) : d; }
+  maskNum(){
+    const d=this.state.card.number.replace(/\D/g,'').slice(0,16);
+    let out=''; for(let i=0;i<16;i++){ out += (d[i]||'•'); if(i%4===3 && i<15) out+=' '; }
+    return out;
+  }
+
+  confirm(){
+    if (!this.state.terms) { this.setState({ termsShake:true }); return; }
+    const id = Math.floor(1000+Math.random()*9000);
+    const order = {
+      buyer:this.state.buyer,
+      visitors:this.state.visitors,
+      method:this.state.method,
+      cuotas:this.state.cuotas,
+      orderId:'INF-2026-'+id,
+      paidAt:new Date().toISOString()
+    };
+    let cur={};
+    try { cur=JSON.parse(localStorage.getItem(STATE_KEY)||'{}'); } catch(e){}
+    cur.order = order;
+    if (this.state.buyer.crearCuenta){
+      cur.user = Object.assign({}, cur.user, { loggedIn:false, name:this.state.buyer.nombre, email:this.state.buyer.email, dni:this.state.buyer.dni });
+    }
+    localStorage.setItem(STATE_KEY, JSON.stringify(cur));
+    window.location.href='confirmacion.dc.html';
+  }
+
+  renderVals(){
+    const st=this.state.step;
+    const dotDone='background:#2DBD7E;color:#fff';
+    const dotActive='background:#29ABE2;color:#fff';
+    const dotTodo='background:#F0F6FA;color:#8EA9BE;border:1px solid #DDEAF2';
+    const d1 = st>1?dotDone:(st===1?dotActive:dotTodo);
+    const d2 = st>2?dotDone:(st===2?dotActive:dotTodo);
+    const d3 = st===3?dotActive:dotTodo;
+    const lblOn='color:#1A3A5C', lblOff='color:#8EA9BE';
+
+    const total=this.cart.total||0;
+    const lineItems=(this.cart.lineItems||[]).map(i=>({ label:this.labelFor(i), amount:this.fmt(i.amt) }));
+    let dateLabel='';
+    if (this.cart.date){ const o=new Date(this.cart.date+'T00:00:00'); dateLabel=o.toLocaleDateString(this.loc(),{weekday:'long',day:'numeric',month:'long',year:'numeric'}); dateLabel=dateLabel.charAt(0).toUpperCase()+dateLabel.slice(1); }
+
+    const tabBase='display:flex;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;font-family:Poppins,sans-serif;font-weight:600;font-size:14.5px;cursor:pointer;transition:all .18s;';
+    const tabOn=tabBase+'border:1.5px solid #29ABE2;background:#F4FBFE;color:#1A7DAF';
+    const tabOff=tabBase+'border:1.5px solid #E8F0F6;background:#fff;color:#8EA9BE';
+    const m=this.state.method;
+
+    const cuotaOpts=[1,3,6,12].map(n=>({
+      n, amt:this.fmt(total/n)+'/mes',
+      pick:()=>this.setState({cuotas:n}),
+      style:'display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 6px;border-radius:12px;cursor:pointer;transition:all .15s;'+(this.state.cuotas===n?'border:1.5px solid #29ABE2;background:#F4FBFE;color:#1A7DAF':'border:1.5px solid #DDEAF2;background:#fff;color:#1A3A5C')
+    }));
+
+    const b=this.state.buyer;
+    const acctOn=b.crearCuenta, titOn=this.state.titular, termsOn=this.state.terms;
+
+    return {
+      isStep1:st===1, isStep2:st===2, isStep3:st===3,
+      dot1:d1, dot2:d2, dot3:d3,
+      check1: st>1?'display:inline':'display:none',
+      check2: st>2?'display:inline':'display:none',
+      num1: st>1?'display:none':'display:inline',
+      num2: st>2?'display:none':'display:inline',
+      num3:'display:inline',
+      lbl1: st>=1?lblOn:lblOff, lbl2: st>=2?lblOn:lblOff, lbl3: st>=3?lblOn:lblOff,
+      bar1: st>1?'#2DBD7E':'#DDEAF2', bar2: st>2?'#2DBD7E':'#DDEAF2',
+
+      b,
+      onNombre:e=>this.setBuyer('nombre',e.target.value),
+      onEmail:e=>this.setBuyer('email',e.target.value),
+      onWa:e=>this.setBuyer('whatsapp',e.target.value),
+      onDni:e=>this.setBuyer('dni',e.target.value),
+      toggleAcct:()=>this.setBuyer('crearCuenta',!b.crearCuenta),
+      acctBorder:acctOn?'#29ABE2':'#C2D2DE', acctBg:acctOn?'#29ABE2':'#fff', acctCheck:acctOn?'opacity:1':'opacity:0',
+
+      toggleTitular:()=>this.applyTitular(),
+      titBorder:titOn?'#29ABE2':'#C2D2DE', titBg:titOn?'#29ABE2':'#fff', titCheck:titOn?'opacity:1':'opacity:0',
+      visitors:this.state.visitors.map((v,i)=>({ n:i+1, nombre:v.nombre, dni:v.dni, onName:e=>this.setVisitor(i,'nombre',e.target.value), onDni:e=>this.setVisitor(i,'dni',e.target.value) })),
+
+      next:()=>this.go(st+1), back:()=>this.go(st-1),
+
+      mTarjeta:()=>this.setState({method:'tarjeta'}), mMp:()=>this.setState({method:'mp'}), mTransfer:()=>this.setState({method:'transfer'}),
+      tabTarjeta:m==='tarjeta'?tabOn:tabOff, tabMp:m==='mp'?tabOn:tabOff, tabTransfer:m==='transfer'?tabOn:tabOff,
+      isTarjeta:m==='tarjeta', isMp:m==='mp', isTransfer:m==='transfer',
+
+      card:this.state.card,
+      cardTransform:this.state.flipped?'rotateY(180deg)':'rotateY(0deg)',
+      cardNumberDisplay:this.maskNum(),
+      cardNameDisplay:this.state.card.name||'NOMBRE APELLIDO',
+      cardExpDisplay:this.state.card.exp||'MM/AA',
+      cardCvvDisplay:this.state.card.cvv||'•••',
+      onCardNum:e=>this.setCard('number',this.fmtCardNum(e.target.value)),
+      onCardName:e=>this.setCard('name',e.target.value),
+      onCardExp:e=>this.setCard('exp',this.fmtExp(e.target.value)),
+      onCardCvv:e=>this.setCard('cvv',e.target.value.replace(/\D/g,'').slice(0,4)),
+      flipOn:()=>this.setState({flipped:true}), flipOff:()=>this.setState({flipped:false}),
+      cuotaOpts,
+
+      toggleSummary:()=>this.setState(s=>({summaryOpen:!s.summaryOpen})),
+      summaryOpen:this.state.summaryOpen,
+      sumChev:this.state.summaryOpen?'rotate(180deg)':'rotate(0deg)',
+      totalStr:this.fmt(total),
+      dateLabel, lineItems,
+
+      toggleTerms:()=>this.setState(s=>({terms:!s.terms})),
+      termsBorder:termsOn?'#29ABE2':'#C2D2DE', termsBg:termsOn?'#29ABE2':'#fff', termsCheck:termsOn?'opacity:1':'opacity:0',
+
+      payLabel:this.i18('Pagar')+' '+this.fmt(total),
+      payBtn: termsOn
+        ? 'background:linear-gradient(135deg,#FF8C00,#FF6B00);color:#fff;box-shadow:0 10px 26px rgba(255,140,0,.4)'
+        : 'background:#C2D2DE;color:#fff;cursor:not-allowed',
+      confirm:()=>this.confirm()
+    };
+  }
+}
+</script>
+</body>
+</html>

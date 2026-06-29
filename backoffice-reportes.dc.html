@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="i18n.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A1622}
+  ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#1E3048;border-radius:8px}
+</style>
+</helmet>
+
+<div style="font-family:Inter,system-ui,sans-serif;color:#E6EEF5;display:flex;min-height:100vh;background:#0A1622">
+
+  <aside style="width:260px;flex-shrink:0;background:#0D1B2A;border-right:1px solid #16263a;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto">
+    <div style="padding:22px 22px 16px"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito" style="height:32px;filter:brightness(0) invert(1)"></div>
+    <div style="display:flex;align-items:center;gap:11px;padding:12px 22px;margin:0 0 8px;border-top:1px solid #16263a;border-bottom:1px solid #16263a">
+      <span style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;flex-shrink:0">AD</span>
+      <div style="min-width:0"><div style="font-family:Poppins,sans-serif;font-weight:600;font-size:13.5px;color:#fff">Admin</div><div style="font-size:11.5px;color:#5E7790">Gerente General</div></div>
+    </div>
+    <nav style="flex:1;padding:8px 12px;display:flex;flex-direction:column;gap:2px">
+      <a href="backoffice-dashboard.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-layout-dashboard" style="font-size:19px"></i>Dashboard</a>
+      <a href="backoffice-acceso.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-door-enter" style="font-size:19px"></i>Control de acceso</a>
+      <a href="backoffice-estacionamiento.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-parking" style="font-size:19px"></i>Estacionamiento</a>
+      <a href="backoffice-tickets.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-ticket" style="font-size:19px"></i>Tickets &amp; Ventas</a>
+      <a href="backoffice-atracciones.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-rollercoaster" style="font-size:19px"></i>Atracciones</a>
+      <a href="backoffice-gastronomia.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-tools-kitchen-2" style="font-size:19px"></i>Gastronomía</a>
+      <a href="backoffice-crm.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-users" style="font-size:19px"></i>CRM</a>
+      <a href="backoffice-gamificacion.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-trophy" style="font-size:19px"></i>InfinitoPass</a>
+      <a href="backoffice-reportes.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:600;color:#29ABE2;background:rgba(41,171,226,.14);border-left:3px solid #29ABE2"><i class="ti ti-chart-line" style="font-size:19px"></i>Reportes</a>
+      <a href="backoffice-config.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-settings" style="font-size:19px"></i>Configuración</a>
+    </nav>
+    <div style="padding:12px;border-top:1px solid #16263a">
+      <a href="backoffice-login.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-logout" style="font-size:19px"></i>Cerrar sesión</a>
+    </div>
+  </aside>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <header style="position:sticky;top:0;z-index:30;background:#0F2034;border-bottom:1px solid #16263a;padding:14px clamp(16px,3vw,32px);display:flex;align-items:center;gap:18px">
+      <div style="position:relative;flex:1;max-width:420px"><i class="ti ti-search" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#56708a;font-size:18px"></i><input placeholder="Buscar visitante, ticket, patente…" style="width:100%;padding:11px 14px 11px 42px;border:1px solid #1E3048;border-radius:11px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"></div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:16px">
+        <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(45,189,126,.15);border:1px solid rgba(45,189,126,.3);color:#2DBD7E;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;padding:7px 13px;border-radius:999px"><span style="width:8px;height:8px;border-radius:50%;background:#2DBD7E"></span>Parque ABIERTO</span>
+        <span style="font-family:Inter;font-weight:700;font-size:14px;color:#9FB3C6;font-variant-numeric:tabular-nums">{{ clock }}</span>
+        <span style="position:relative;color:#9FB3C6;cursor:pointer"><i class="ti ti-bell" style="font-size:21px"></i><span style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:#FF5F5F;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span></span>
+        <span style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:13px">AD</span>
+      </div>
+    </header>
+
+    <main style="padding:clamp(18px,3vw,30px);display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap">
+        <div><h1 style="margin:0;font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#fff">Reportes &amp; Analytics</h1><p style="margin:5px 0 0;color:#5E7790;font-size:14px">Análisis del rendimiento de la temporada</p></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ periods }}" as="p" hint-placeholder-count="4">
+            <button onClick="{{ p.pick }}" style="{{ p.style }}">{{ p.name }}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button onClick="{{ exportCsv }}" style="background:#142a40;color:#29ABE2;border:1px solid #1E3048;border-radius:10px;padding:10px 16px;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px"><i class="ti ti-file-spreadsheet" style="font-size:16px"></i>Exportar CSV</button>
+        <button style="background:#142a40;color:#9FB3C6;border:1px solid #1E3048;border-radius:10px;padding:10px 16px;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px"><i class="ti ti-file-type-pdf" style="font-size:16px"></i>PDF</button>
+        <button style="background:#142a40;color:#9FB3C6;border:1px solid #1E3048;border-radius:10px;padding:10px 16px;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px"><i class="ti ti-file-type-xls" style="font-size:16px"></i>Excel</button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:20px">
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:22px"><h3 style="margin:0 0 4px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;color:#fff">Visitantes por día</h3><p style="margin:0 0 14px;font-size:12.5px;color:#5E7790">Últimos 14 días</p><div style="height:230px"><canvas id="c1"></canvas></div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:22px"><h3 style="margin:0 0 4px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;color:#fff">Ingresos por día</h3><p style="margin:0 0 14px;font-size:12.5px;color:#5E7790">En millones ARS</p><div style="height:230px"><canvas id="c2"></canvas></div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:22px"><h3 style="margin:0 0 4px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;color:#fff">Mix de tickets</h3><p style="margin:0 0 14px;font-size:12.5px;color:#5E7790">Distribución por tipo</p><div style="height:230px"><canvas id="c3"></canvas></div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:22px"><h3 style="margin:0 0 4px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;color:#fff">NPS por semana</h3><p style="margin:0 0 14px;font-size:12.5px;color:#5E7790">Net Promoter Score</p><div style="height:230px"><canvas id="c4"></canvas></div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:22px"><h3 style="margin:0 0 4px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;color:#fff">Origen por provincia</h3><p style="margin:0 0 14px;font-size:12.5px;color:#5E7790">Top 6 provincias</p><div style="height:230px"><canvas id="c5"></canvas></div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:22px">
+          <h3 style="margin:0 0 4px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;color:#fff">Ocupación por hora y día</h3><p style="margin:0 0 14px;font-size:12.5px;color:#5E7790">Heatmap semanal</p>
+          <div style="display:flex;flex-direction:column;gap:3px">
+            <sc-for list="{{ heat }}" as="row" hint-placeholder-count="7">
+              <div style="display:flex;align-items:center;gap:6px"><span style="width:28px;font-size:11px;color:#5E7790">{{ row.day }}</span><div style="display:flex;gap:3px;flex:1">
+                <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="11"><span style="flex:1;height:16px;border-radius:3px;background:{{ c }}"></span></sc-for>
+              </div></div>
+            </sc-for>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:4px"><span style="width:28px"></span><div style="display:flex;justify-content:space-between;flex:1;font-size:10px;color:#56708a"><span>9h</span><span>14h</span><span>19h</span></div></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.now=()=>{ const loc=(window.InfinitoI18n&&window.InfinitoI18n.locale)||'es-AR'; return new Date().toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit',second:'2-digit'}); };
+    this.PERIODS=['Hoy','Semana','Mes','Temporada'];
+    this.state={ clock:this.now(), period:2 };
+    this._charts=[];
+  }
+  componentDidMount(){ this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang', this._lh); this._t=setInterval(()=>this.setState({clock:this.now()}),1000); this.draw(); }
+  componentWillUnmount(){ clearInterval(this._t); window.removeEventListener('infinito:lang', this._lh); this._charts.forEach(c=>{try{c.destroy();}catch(e){}}); }
+  draw(){
+    if(typeof Chart==='undefined'){ setTimeout(()=>this.draw(),200); return; }
+    if(this._drawn) return; this._drawn=true;
+    const ax={x:{grid:{display:false},ticks:{color:'#56708a',font:{size:10}}},y:{grid:{color:'#16263a'},ticks:{color:'#56708a',font:{size:10}}}};
+    const mk=(id,cfg)=>{ const el=document.getElementById(id); if(el) this._charts.push(new Chart(el,cfg)); };
+    const d14=Array.from({length:14},(_,i)=>'D'+(i+1));
+    mk('c1',{type:'bar',data:{labels:d14,datasets:[{data:[4.2,4.8,7.1,8.0,3.1,3.4,7.6,8.2,4.0,4.5,7.9,8.4,3.2,3.6].map(x=>x*1000),backgroundColor:'#29ABE2',borderRadius:4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:ax}});
+    mk('c2',{type:'line',data:{labels:d14,datasets:[{data:[210,240,360,410,160,175,380,420,200,225,395,430,165,185],borderColor:'#2DBD7E',backgroundColor:'rgba(45,189,126,.15)',fill:true,tension:.4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:ax}});
+    mk('c3',{type:'doughnut',data:{labels:['Acqua Fun','Acqua Plus','Tribu VIP'],datasets:[{data:[54,36,10],backgroundColor:['#29ABE2','#FF8C00','#C9A84C'],borderColor:'#0F2034',borderWidth:3}]},options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{labels:{color:'#9FB3C6',font:{size:11}}}}}});
+    mk('c4',{type:'line',data:{labels:['S1','S2','S3','S4','S5','S6','S7','S8'],datasets:[{data:[68,71,69,74,76,73,78,80],borderColor:'#FFB800',backgroundColor:'rgba(255,184,0,.12)',fill:true,tension:.4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:Object.assign({},ax,{y:{min:50,max:100,grid:{color:'#16263a'},ticks:{color:'#56708a',font:{size:10}}}})}});
+    mk('c5',{type:'bar',data:{labels:['Córdoba','Bs As','Santa Fe','Mendoza','Tucumán','S. Luis'],datasets:[{data:[48,21,13,7,6,5],backgroundColor:'#1A7DAF',borderRadius:4}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:ax}});
+  }
+  exportCsv(){ const blob=new Blob(['metrica,valor\nvisitantes_temporada,87420\ningresos_temporada_M,5840\nnps_promedio,74\n'],{type:'text/csv'}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='reporte-infinito.csv'; a.click(); }
+  renderVals(){
+    const pBtn=(on)=>'padding:9px 16px;border-radius:10px;border:1px solid '+(on?'#29ABE2':'#1E3048')+';background:'+(on?'rgba(41,171,226,.14)':'#0F2034')+';color:'+(on?'#29ABE2':'#9FB3C6')+';font-family:Poppins,sans-serif;font-weight:600;font-size:13px;cursor:pointer';
+    const days=['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+    const heatColor=(v)=> v>85?'#FF5F5F':v>65?'#FF8C00':v>40?'#FFB800':v>20?'#2DBD7E':'#16352a';
+    const heat=days.map((d,di)=>({ day:d, cells:Array.from({length:11},(_,h)=>{ const base=(di>=4?70:35); const peak=100-Math.abs(h-4.5)*11; return heatColor(Math.max(8,Math.min(99, base*peak/100 + (di>=4?20:0)))); }) }));
+    return {
+      clock:this.state.clock,
+      periods:this.PERIODS.map((p,i)=>({ name:p, pick:()=>this.setState({period:i}), style:pBtn(this.state.period===i) })),
+      exportCsv:()=>this.exportCsv(),
+      heat
+    };
+  }
+}
+</script>
+</body>
+</html>

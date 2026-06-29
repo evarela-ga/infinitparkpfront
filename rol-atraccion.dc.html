@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="i18n.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0D1B2A}
+  @keyframes pulseRed{0%,100%{box-shadow:0 0 0 0 rgba(255,95,95,.5)}50%{box-shadow:0 0 0 14px rgba(255,95,95,0)}}
+</style>
+</helmet>
+
+<div style="font-family:Inter,system-ui,sans-serif;color:#fff;min-height:100vh;background:radial-gradient(circle at 50% 0%,#15324d,#0D1B2A);padding:22px clamp(16px,3vw,30px)">
+  <div style="max-width:960px;margin:0 auto">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px">
+      <div style="display:flex;align-items:center;gap:14px"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito" style="height:30px;filter:brightness(0) invert(1)"><div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:20px">Cápsula de Aceleración</div><div style="font-size:12.5px;color:#9FB3C6">Chuncanas · Operador: Juan T.</div></div></div>
+      <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(45,189,126,.15);border:1px solid rgba(45,189,126,.35);color:#2DBD7E;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;padding:8px 15px;border-radius:999px">{{ statusLabel }}</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px">
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:18px;text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:30px;color:#FFB800">{{ espera }}</div><div style="font-size:12px;color:#5E7790">Espera (min)</div></div>
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:18px;text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:30px;color:#29ABE2;font-variant-numeric:tabular-nums">{{ cola }}</div><div style="font-size:12px;color:#5E7790">En cola</div></div>
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:18px;text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:30px;color:#fff;font-variant-numeric:tabular-nums">{{ enviados }}</div><div style="font-size:12px;color:#5E7790">Enviados turno</div></div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:2fr 1fr;gap:14px;margin-bottom:22px">
+      <button onClick="{{ enviar }}" style="background:linear-gradient(135deg,#2DBD7E,#1A8A5A);color:#fff;border:none;border-radius:18px;padding:30px;font-family:Poppins,sans-serif;font-weight:800;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px"><i class="ti ti-send" style="font-size:30px"></i>Enviar usuario</button>
+      <button onClick="{{ pausa }}" style="background:#142a40;color:#FFB800;border:1px solid rgba(255,184,0,.35);border-radius:18px;padding:30px 16px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px"><i class="ti ti-player-pause" style="font-size:26px"></i>Pausa técnica</button>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:26px">
+      <button onClick="{{ openEmerg }}" style="background:linear-gradient(135deg,#FF5F5F,#C23A3A);color:#fff;border:none;border-radius:16px;padding:22px;font-family:Poppins,sans-serif;font-weight:800;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;animation:pulseRed 2s infinite"><i class="ti ti-urgent" style="font-size:26px"></i>Emergencia</button>
+      <button onClick="{{ incidente }}" style="background:#142a40;color:#9FB3C6;border:1px solid #1E3048;border-radius:16px;padding:22px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px"><i class="ti ti-clipboard-text" style="font-size:24px"></i>Reportar incidente</button>
+    </div>
+
+    <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:20px">
+      <h3 style="margin:0 0 14px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px">Historial del turno</h3>
+      <div style="display:flex;flex-direction:column;gap:2px;max-height:200px;overflow:auto">
+        <sc-for list="{{ log }}" as="e" hint-placeholder-count="4">
+          <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #16263a;font-size:13.5px"><i class="ti {{ e.icon }}" style="font-size:18px;color:{{ e.color }}"></i><span style="flex:1;color:#E6EEF5">{{ e.text }}</span><span style="color:#5E7790;font-variant-numeric:tabular-nums">{{ e.time }}</span></div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <sc-if value="{{ emergOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeEmerg }}" style="position:fixed;inset:0;z-index:200;background:rgba(120,10,10,.55);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px">
+      <div onClick="{{ stop }}" style="background:#1a0e0e;border:1.5px solid rgba(255,95,95,.5);border-radius:20px;max-width:400px;width:100%;padding:28px;text-align:center">
+        <i class="ti ti-urgent" style="font-size:48px;color:#FF5F5F"></i>
+        <h3 style="margin:14px 0 8px;font-family:Poppins,sans-serif;font-weight:800;font-size:22px;color:#fff">Confirmar emergencia</h3>
+        <p style="margin:0 0 22px;color:#E6B3B3;font-size:14px">Se enviará una alerta inmediata a seguridad, guardavidas y backoffice. La atracción se detiene automáticamente.</p>
+        <div style="display:flex;gap:10px"><button onClick="{{ closeEmerg }}" style="flex:1;background:#2a1414;color:#E6B3B3;border:1px solid rgba(255,95,95,.3);border-radius:11px;padding:13px;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;cursor:pointer">Cancelar</button><button onClick="{{ confirmEmerg }}" style="flex:1;background:linear-gradient(135deg,#FF5F5F,#C23A3A);color:#fff;border:none;border-radius:11px;padding:13px;font-family:Poppins,sans-serif;font-weight:700;font-size:14px;cursor:pointer">Confirmar alerta</button></div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.now=()=>{ const loc=(window.InfinitoI18n&&window.InfinitoI18n.locale)||'es-AR'; return new Date().toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit'}); };
+    this.state={ status:'op', cola:34, enviados:847, log:[
+      { icon:'ti-send', color:'#2DBD7E', text:'Tanda enviada (4 personas)', time:'14:32' },
+      { icon:'ti-send', color:'#2DBD7E', text:'Tanda enviada (4 personas)', time:'14:30' },
+      { icon:'ti-player-pause', color:'#FFB800', text:'Pausa técnica (2 min)', time:'14:25' },
+      { icon:'ti-send', color:'#2DBD7E', text:'Tanda enviada (3 personas)', time:'14:22' }
+    ], emerg:false };
+  }
+  componentDidMount(){ this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang', this._lh); }
+  componentWillUnmount(){ window.removeEventListener('infinito:lang', this._lh); }
+  push(icon,color,text){ this.setState(s=>({ log:[{icon,color,text,time:this.now()}, ...s.log] })); }
+  renderVals(){
+    const map={op:'Operativa',pause:'Pausa técnica',emerg:'Detenida · Emergencia'};
+    return {
+      statusLabel:map[this.state.status]||'Operativa',
+      espera:this.state.status==='op'?'22':'—', cola:this.state.cola, enviados:this.state.enviados,
+      enviar:()=>{ this.setState(s=>({enviados:s.enviados+4, cola:Math.max(0,s.cola-4)})); this.push('ti-send','#2DBD7E','Tanda enviada (4 personas)'); },
+      pausa:()=>{ this.setState({status:this.state.status==='pause'?'op':'pause'}); this.push('ti-player-pause','#FFB800','Pausa técnica'); },
+      incidente:()=>{ this.push('ti-clipboard-text','#9FB3C6','Incidente reportado'); },
+      openEmerg:()=>this.setState({emerg:true}), closeEmerg:()=>this.setState({emerg:false}), emergOpen:this.state.emerg, stop:(e)=>e.stopPropagation(),
+      confirmEmerg:()=>{ this.setState({emerg:false,status:'emerg'}); this.push('ti-urgent','#FF5F5F','ALERTA DE EMERGENCIA enviada'); },
+      log:this.state.log
+    };
+  }
+}
+</script>
+</body>
+</html>

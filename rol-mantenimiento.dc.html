@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="i18n.js"></script>
+<style>*{box-sizing:border-box}body{margin:0;background:#0D1B2A}</style>
+</helmet>
+
+<div style="font-family:Inter,system-ui,sans-serif;color:#fff;min-height:100vh;background:radial-gradient(circle at 50% 0%,#15324d,#0D1B2A);padding:22px clamp(16px,3vw,30px)">
+  <div style="max-width:900px;margin:0 auto">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:12px">
+      <div style="display:flex;align-items:center;gap:14px"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito" style="height:30px;filter:brightness(0) invert(1)"><div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:20px">Limpieza &amp; Mantenimiento</div><div style="font-size:12.5px;color:#9FB3C6">Turno tarde · Equipo B · {{ clock }}</div></div></div>
+      <button onClick="{{ openRep }}" style="background:linear-gradient(135deg,#FF8C00,#FF6B00);color:#fff;border:none;border-radius:11px;padding:11px 18px;font-family:Poppins,sans-serif;font-weight:700;font-size:13.5px;cursor:pointer;display:flex;align-items:center;gap:7px"><i class="ti ti-alert-triangle" style="font-size:17px"></i>Reportar problema</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px">
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:14px;padding:16px;text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#FFB800">{{ pend }}</div><div style="font-size:12px;color:#5E7790">Pendientes</div></div>
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:14px;padding:16px;text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#29ABE2">{{ prog }}</div><div style="font-size:12px;color:#5E7790">En progreso</div></div>
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:14px;padding:16px;text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#2DBD7E">{{ done }}</div><div style="font-size:12px;color:#5E7790">Completadas</div></div>
+    </div>
+
+    <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:20px">
+      <h3 style="margin:0 0 16px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px">Checklist de tareas</h3>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ tasks }}" as="t" hint-placeholder-count="6">
+          <div style="display:flex;align-items:center;gap:14px;background:#0A1622;border:1px solid #16263a;border-radius:13px;padding:14px 16px">
+            <button onClick="{{ t.toggle }}" style="width:28px;height:28px;border-radius:8px;flex-shrink:0;cursor:pointer;border:2px solid {{ t.checkBorder }};background:{{ t.checkBg }};display:flex;align-items:center;justify-content:center"><i class="ti ti-check" style="font-size:17px;color:#fff;{{ t.checkVis }}"></i></button>
+            <div style="flex:1"><div style="font-size:14.5px;color:{{ t.textColor }};font-weight:500;{{ t.strike }}">{{ t.name }}</div><div style="font-size:12px;color:#5E7790">{{ t.zona }} · {{ t.sub }}</div></div>
+            <span style="font-size:11.5px;font-weight:700;padding:5px 11px;border-radius:999px;{{ t.badgeStyle }}">{{ t.estado }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <sc-if value="{{ repOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeRep }}" style="position:fixed;inset:0;z-index:200;background:rgba(5,12,20,.7);display:flex;align-items:center;justify-content:center;padding:20px">
+      <div onClick="{{ stop }}" style="background:#0F2034;border:1px solid #1E3048;border-radius:20px;max-width:430px;width:100%;padding:26px">
+        <h3 style="margin:0 0 16px;font-family:Poppins,sans-serif;font-weight:800;font-size:20px">Reportar problema</h3>
+        <sc-if value="{{ repDone }}" hint-placeholder-val="{{ false }}"><div style="background:rgba(45,189,126,.12);border:1px solid rgba(45,189,126,.3);color:#2DBD7E;border-radius:12px;padding:16px;font-size:14px;display:flex;align-items:center;gap:9px"><i class="ti ti-check" style="font-size:19px"></i>Reporte enviado a mantenimiento central.</div></sc-if>
+        <sc-if value="{{ repForm }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <select style="width:100%;padding:12px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none;margin-bottom:12px"><option>Zona: Olas</option><option>Zona: Chuncanas</option><option>Zona: Cala Ansenuza</option><option>Zona: Uritorkia</option><option>Zona: La Noria</option><option>Zona: Buen Este</option></select>
+            <select style="width:100%;padding:12px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none;margin-bottom:12px"><option>Tipo: Limpieza</option><option>Tipo: Plomería</option><option>Tipo: Eléctrico</option><option>Tipo: Estructura</option></select>
+            <textarea rows="3" placeholder="Describí el problema…" style="width:100%;padding:12px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none;resize:vertical;margin-bottom:12px"></textarea>
+            <label style="display:flex;align-items:center;gap:10px;padding:13px;border:1px dashed #1E3048;border-radius:10px;cursor:pointer;color:#9FB3C6;font-size:13.5px;margin-bottom:16px"><i class="ti ti-camera" style="font-size:20px;color:#29ABE2"></i>Adjuntar foto<input type="file" style="display:none"></label>
+            <div style="display:flex;gap:10px"><button onClick="{{ closeRep }}" style="flex:1;background:#142a40;color:#9FB3C6;border:1px solid #1E3048;border-radius:10px;padding:12px;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;cursor:pointer">Cancelar</button><button onClick="{{ submitRep }}" style="flex:1;background:linear-gradient(135deg,#29ABE2,#1A7DAF);color:#fff;border:none;border-radius:10px;padding:12px;font-family:Poppins,sans-serif;font-weight:700;font-size:14px;cursor:pointer">Enviar reporte</button></div>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.now=()=>{ const loc=(window.InfinitoI18n&&window.InfinitoI18n.locale)||'es-AR'; return new Date().toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit'}); };
+    this.TASKS=[
+      { name:'Limpieza de baños sector Olas', zona:'Olas', st:'done', t:'13:40' },
+      { name:'Reposición de cloro pileta principal', zona:'Olas', st:'done', t:'13:10' },
+      { name:'Control de toboganes Chuncanas', zona:'Chuncanas', st:'prog', t:'' },
+      { name:'Vaciado de cestos zona gastronómica', zona:'Buen Este', st:'pend', t:'' },
+      { name:'Limpieza de vestuarios', zona:'Uritorkia', st:'pend', t:'' },
+      { name:'Revisión de bombas río lento', zona:'Cala Ansenuza', st:'pend', t:'' }
+    ];
+    this.state={ clock:this.now(), states:this.TASKS.map(t=>t.st), times:this.TASKS.map(t=>t.t), rep:null };
+  }
+  componentDidMount(){ this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang', this._lh); this._t=setInterval(()=>this.setState({clock:this.now()}),1000); }
+  componentWillUnmount(){ clearInterval(this._t); window.removeEventListener('infinito:lang', this._lh); }
+  cycle(i){ this.setState(s=>{ const st=[...s.states]; const tm=[...s.times]; st[i]= st[i]==='pend'?'prog':(st[i]==='prog'?'done':'pend'); tm[i]= st[i]==='done'?this.now():''; return {states:st,times:tm}; }); }
+  renderVals(){
+    const meta=(s)=> s==='done'?{estado:'Completada',badge:'background:rgba(45,189,126,.15);color:#2DBD7E'}:(s==='prog'?{estado:'En progreso',badge:'background:rgba(41,171,226,.15);color:#5AC4ED'}:{estado:'Pendiente',badge:'background:rgba(255,184,0,.15);color:#FFB800'});
+    const sts=this.state.states;
+    const tasks=this.TASKS.map((t,i)=>{ const done=sts[i]==='done'; const m=meta(sts[i]); return {
+      name:t.name, zona:t.zona, sub: done?('Completada '+this.state.times[i]):(sts[i]==='prog'?'En curso':'Sin iniciar'),
+      estado:m.estado, badgeStyle:m.badge,
+      textColor: done?'#5E7790':'#E6EEF5', strike: done?'text-decoration:line-through':'',
+      checkBorder: done?'#2DBD7E':'#1E3048', checkBg: done?'#2DBD7E':'transparent', checkVis: done?'opacity:1':'opacity:0',
+      toggle:()=>this.cycle(i)
+    };});
+    return {
+      clock:this.state.clock, tasks,
+      pend:sts.filter(s=>s==='pend').length, prog:sts.filter(s=>s==='prog').length, done:sts.filter(s=>s==='done').length,
+      openRep:()=>this.setState({rep:'form'}), closeRep:()=>this.setState({rep:null}), stop:(e)=>e.stopPropagation(),
+      repOpen:this.state.rep!==null, repForm:this.state.rep==='form', repDone:this.state.rep==='done',
+      submitRep:()=>{ this.setState({rep:'done'}); setTimeout(()=>{try{this.setState({rep:null});}catch(e){}},1800); }
+    };
+  }
+}
+</script>
+</body>
+</html>

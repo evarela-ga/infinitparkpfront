@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="i18n.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#EAF1F6}
+</style>
+</helmet>
+
+<div style="font-family:Inter,system-ui,sans-serif;color:#0D1B2A;min-height:100vh;display:flex;flex-direction:column">
+  <header style="background:#fff;box-shadow:0 2px 12px rgba(26,58,92,.08);padding:12px clamp(16px,3vw,28px);display:flex;align-items:center;justify-content:space-between">
+    <div style="display:flex;align-items:center;gap:14px"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito" style="height:32px"><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:14px;color:#1A3A5C;border-left:1px solid #DDEAF2;padding-left:14px">POS · Mostaza</span></div>
+    <div style="display:flex;align-items:center;gap:14px;font-size:13px;color:#8EA9BE"><span>Cajero: Pablo S.</span><span style="font-family:Inter;font-weight:700;color:#1A7DAF;font-variant-numeric:tabular-nums">{{ clock }}</span></div>
+  </header>
+
+  <div style="flex:1;display:grid;grid-template-columns:1fr 360px;gap:0;min-height:0">
+    <!-- MENU -->
+    <div style="padding:clamp(16px,3vw,26px);overflow:auto">
+      <div style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4"><button onClick="{{ c.pick }}" style="{{ c.style }}">{{ c.name }}</button></sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px">
+        <sc-for list="{{ menu }}" as="m" hint-placeholder-count="9">
+          <button onClick="{{ m.add }}" style="background:#fff;border:1px solid #E3ECF3;border-radius:16px;padding:18px 14px;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:10px;transition:all .15s" style-hover="border-color:#29ABE2;transform:translateY(-3px);box-shadow:0 10px 24px rgba(26,58,92,.12)">
+            <span style="width:46px;height:46px;border-radius:13px;background:#E8F7FD;display:flex;align-items:center;justify-content:center"><i class="ti {{ m.icon }}" style="font-size:25px;color:#29ABE2"></i></span>
+            <span style="font-family:Poppins,sans-serif;font-weight:600;font-size:14px;color:#1A3A5C;line-height:1.25">{{ m.name }}</span>
+            <span style="font-family:Poppins,sans-serif;font-weight:800;font-size:15px;color:#1A7DAF;font-variant-numeric:tabular-nums">{{ m.priceStr }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- ORDER -->
+    <div style="background:#fff;border-left:1px solid #E3ECF3;display:flex;flex-direction:column;min-height:0">
+      <div style="padding:20px 22px 14px;border-bottom:1px solid #F0F6FA"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#1A3A5C">Pedido actual</div><div style="font-size:12.5px;color:#8EA9BE">Orden #1043</div></div>
+      <div style="flex:1;overflow:auto;padding:14px 22px">
+        <sc-if value="{{ empty }}" hint-placeholder-val="{{ true }}"><div style="text-align:center;color:#A9BECE;padding:40px 10px;font-size:14px"><i class="ti ti-shopping-cart" style="font-size:38px;display:block;margin-bottom:10px;color:#D3E0EA"></i>Tocá un producto para agregarlo.</div></sc-if>
+        <sc-for list="{{ lines }}" as="l" hint-placeholder-count="3">
+          <div style="display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #F4F8FB">
+            <div style="flex:1"><div style="font-size:14px;font-weight:600;color:#1A3A5C">{{ l.name }}</div><div style="font-size:12px;color:#8EA9BE">{{ l.priceStr }} c/u</div></div>
+            <div style="display:flex;align-items:center;gap:8px"><button onClick="{{ l.dec }}" style="width:28px;height:28px;border-radius:8px;border:1px solid #DDEAF2;background:#fff;cursor:pointer;color:#1A7DAF;font-size:16px;font-weight:700">−</button><span style="min-width:18px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums">{{ l.qty }}</span><button onClick="{{ l.inc }}" style="width:28px;height:28px;border-radius:8px;border:1px solid #DDEAF2;background:#fff;cursor:pointer;color:#1A7DAF;font-size:16px;font-weight:700">+</button></div>
+            <span style="min-width:64px;text-align:right;font-family:Poppins,sans-serif;font-weight:700;font-size:14px;color:#0D1B2A;font-variant-numeric:tabular-nums">{{ l.totalStr }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="padding:18px 22px;border-top:1px solid #F0F6FA">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px"><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:16px;color:#1A3A5C">Total</span><span style="font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#0D1B2A;font-variant-numeric:tabular-nums">{{ totalStr }}</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:12px">
+          <button onClick="{{ payPulsera }}" style="{{ payP }}"><i class="ti ti-devices-watch" style="font-size:20px"></i><span style="font-size:11.5px">Pulsera</span></button>
+          <button onClick="{{ payTarjeta }}" style="{{ payT }}"><i class="ti ti-credit-card" style="font-size:20px"></i><span style="font-size:11.5px">Tarjeta</span></button>
+          <button onClick="{{ payEfectivo }}" style="{{ payE }}"><i class="ti ti-cash" style="font-size:20px"></i><span style="font-size:11.5px">Efectivo</span></button>
+        </div>
+        <button onClick="{{ cobrar }}" style="width:100%;background:{{ cobrarBg }};color:#fff;border:none;border-radius:13px;padding:16px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px"><i class="ti ti-check" style="font-size:20px"></i>{{ cobrarLabel }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.now=()=>{ const loc=(window.InfinitoI18n&&window.InfinitoI18n.locale)||'es-AR'; return new Date().toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit'}); };
+    this.CATS=['Combos','Hamburguesas','Bebidas','Postres'];
+    this.MENU=[
+      { id:'a', name:'Combo Clásico', price:8900, icon:'ti-meeple', cat:0 },
+      { id:'b', name:'Combo Crispy', price:9300, icon:'ti-bowl', cat:0 },
+      { id:'c', name:'Doble Cuarto', price:10500, icon:'ti-burger', cat:1 },
+      { id:'d', name:'Hamburguesa Simple', price:7200, icon:'ti-burger', cat:1 },
+      { id:'e', name:'Papas grandes', price:4200, icon:'ti-cheese', cat:1 },
+      { id:'f', name:'Gaseosa 500ml', price:2500, icon:'ti-cup', cat:2 },
+      { id:'g', name:'Agua mineral', price:1800, icon:'ti-droplet', cat:2 },
+      { id:'h', name:'Helado 1/4', price:5800, icon:'ti-ice-cream-2', cat:3 },
+      { id:'i', name:'Brownie', price:4500, icon:'ti-cookie', cat:3 }
+    ];
+    this.state={ clock:this.now(), cat:0, cart:{}, method:'pulsera', done:false };
+  }
+  componentDidMount(){ this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang', this._lh); this._t=setInterval(()=>this.setState({clock:this.now()}),1000); }
+  componentWillUnmount(){ clearInterval(this._t); window.removeEventListener('infinito:lang', this._lh); }
+  fmt(n){ return '$'+Math.round(n).toLocaleString('es-AR'); }
+  add(id){ this.setState(s=>({ cart:{...s.cart,[id]:(s.cart[id]||0)+1}, done:false })); }
+  chg(id,d){ this.setState(s=>{ const c={...s.cart}; c[id]=(c[id]||0)+d; if(c[id]<=0) delete c[id]; return {cart:c}; }); }
+  renderVals(){
+    const catBtn=(on)=>'padding:9px 16px;border-radius:999px;border:1px solid '+(on?'#29ABE2':'#DDEAF2')+';background:'+(on?'#29ABE2':'#fff')+';color:'+(on?'#fff':'#3D5166')+';font-family:Poppins,sans-serif;font-weight:600;font-size:13px;cursor:pointer';
+    const payBtn=(on)=>'display:flex;flex-direction:column;align-items:center;gap:5px;padding:12px 4px;border-radius:12px;cursor:pointer;border:1.5px solid '+(on?'#29ABE2':'#DDEAF2')+';background:'+(on?'#F4FBFE':'#fff')+';color:'+(on?'#1A7DAF':'#3D5166')+';font-family:Poppins,sans-serif;font-weight:600';
+    const lines=this.MENU.filter(m=>this.state.cart[m.id]).map(m=>{ const q=this.state.cart[m.id]; return { name:m.name, qty:q, priceStr:this.fmt(m.price), totalStr:this.fmt(m.price*q), inc:()=>this.chg(m.id,1), dec:()=>this.chg(m.id,-1) }; });
+    const total=this.MENU.reduce((s,m)=>s+(this.state.cart[m.id]||0)*m.price,0);
+    return {
+      clock:this.state.clock,
+      cats:this.CATS.map((c,i)=>({ name:c, pick:()=>this.setState({cat:i}), style:catBtn(this.state.cat===i) })),
+      menu:this.MENU.filter(m=>m.cat===this.state.cat).map(m=>({ name:m.name, priceStr:this.fmt(m.price), icon:m.icon, add:()=>this.add(m.id) })),
+      lines, empty:lines.length===0, totalStr:this.fmt(total),
+      payPulsera:()=>this.setState({method:'pulsera'}), payTarjeta:()=>this.setState({method:'tarjeta'}), payEfectivo:()=>this.setState({method:'efectivo'}),
+      payP:payBtn(this.state.method==='pulsera'), payT:payBtn(this.state.method==='tarjeta'), payE:payBtn(this.state.method==='efectivo'),
+      cobrarBg: this.state.done?'#2DBD7E':(total>0?'linear-gradient(135deg,#29ABE2,#1A7DAF)':'#C2D2DE'),
+      cobrarLabel: this.state.done?'¡Cobrado!':'Cobrar',
+      cobrar:()=>{ if(total<=0)return; this.setState({done:true}); setTimeout(()=>{try{this.setState({cart:{},done:false});}catch(e){}},1500); }
+    };
+  }
+}
+</script>
+</body>
+</html>

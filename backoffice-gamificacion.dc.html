@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="i18n.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A1622}
+  ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#1E3048;border-radius:8px}
+</style>
+</helmet>
+
+<div style="font-family:Inter,system-ui,sans-serif;color:#E6EEF5;display:flex;min-height:100vh;background:#0A1622">
+
+  <aside style="width:260px;flex-shrink:0;background:#0D1B2A;border-right:1px solid #16263a;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto">
+    <div style="padding:22px 22px 16px"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito" style="height:32px;filter:brightness(0) invert(1)"></div>
+    <div style="display:flex;align-items:center;gap:11px;padding:12px 22px;margin:0 0 8px;border-top:1px solid #16263a;border-bottom:1px solid #16263a">
+      <span style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;flex-shrink:0">AD</span>
+      <div style="min-width:0"><div style="font-family:Poppins,sans-serif;font-weight:600;font-size:13.5px;color:#fff">Admin</div><div style="font-size:11.5px;color:#5E7790">Gerente General</div></div>
+    </div>
+    <nav style="flex:1;padding:8px 12px;display:flex;flex-direction:column;gap:2px">
+      <a href="backoffice-dashboard.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-layout-dashboard" style="font-size:19px"></i>Dashboard</a>
+      <a href="backoffice-acceso.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-door-enter" style="font-size:19px"></i>Control de acceso</a>
+      <a href="backoffice-estacionamiento.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-parking" style="font-size:19px"></i>Estacionamiento</a>
+      <a href="backoffice-tickets.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-ticket" style="font-size:19px"></i>Tickets &amp; Ventas</a>
+      <a href="backoffice-atracciones.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-rollercoaster" style="font-size:19px"></i>Atracciones</a>
+      <a href="backoffice-gastronomia.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-tools-kitchen-2" style="font-size:19px"></i>Gastronomía</a>
+      <a href="backoffice-crm.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-users" style="font-size:19px"></i>CRM</a>
+      <a href="backoffice-gamificacion.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:600;color:#29ABE2;background:rgba(41,171,226,.14);border-left:3px solid #29ABE2"><i class="ti ti-trophy" style="font-size:19px"></i>InfinitoPass</a>
+      <a href="backoffice-reportes.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-chart-line" style="font-size:19px"></i>Reportes</a>
+      <a href="backoffice-config.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-settings" style="font-size:19px"></i>Configuración</a>
+    </nav>
+    <div style="padding:12px;border-top:1px solid #16263a">
+      <a href="backoffice-login.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-logout" style="font-size:19px"></i>Cerrar sesión</a>
+    </div>
+  </aside>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <header style="position:sticky;top:0;z-index:30;background:#0F2034;border-bottom:1px solid #16263a;padding:14px clamp(16px,3vw,32px);display:flex;align-items:center;gap:18px">
+      <div style="position:relative;flex:1;max-width:420px"><i class="ti ti-search" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#56708a;font-size:18px"></i><input placeholder="Buscar visitante, ticket, patente…" style="width:100%;padding:11px 14px 11px 42px;border:1px solid #1E3048;border-radius:11px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"></div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:16px">
+        <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(45,189,126,.15);border:1px solid rgba(45,189,126,.3);color:#2DBD7E;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;padding:7px 13px;border-radius:999px"><span style="width:8px;height:8px;border-radius:50%;background:#2DBD7E"></span>Parque ABIERTO</span>
+        <span style="font-family:Inter;font-weight:700;font-size:14px;color:#9FB3C6;font-variant-numeric:tabular-nums">{{ clock }}</span>
+        <span style="position:relative;color:#9FB3C6;cursor:pointer"><i class="ti ti-bell" style="font-size:21px"></i><span style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:#FF5F5F;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span></span>
+        <span style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:13px">AD</span>
+      </div>
+    </header>
+
+    <main style="padding:clamp(18px,3vw,30px);display:flex;flex-direction:column;gap:22px">
+      <div><h1 style="margin:0;font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#fff">Gamificación InfinitoPass</h1><p style="margin:5px 0 0;color:#5E7790;font-size:14px">Programa de fidelización y puntos</p></div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px">
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:18px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase">Usuarios registrados</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:28px;color:#29ABE2;margin-top:6px;font-variant-numeric:tabular-nums">24.847</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:18px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase">Activos este mes</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:28px;color:#fff;margin-top:6px;font-variant-numeric:tabular-nums">8.392</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:18px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase">Puntos otorgados hoy</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:28px;color:#fff;margin-top:6px;font-variant-numeric:tabular-nums">847.200</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:18px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase">Tasa de canje</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:28px;color:#2DBD7E;margin-top:6px">14,7%</div></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:22px;align-items:start">
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px">
+          <h3 style="margin:0 0 16px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Distribución de niveles</h3>
+          <div style="height:210px;position:relative"><canvas id="chartLvl"></canvas></div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:18px">
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:13px"><span style="display:flex;align-items:center;gap:8px;color:#9FB3C6"><span style="width:11px;height:11px;border-radius:3px;background:#8EA9BE"></span>Explorador</span><span style="font-weight:700;color:#fff">11.420</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:13px"><span style="display:flex;align-items:center;gap:8px;color:#9FB3C6"><span style="width:11px;height:11px;border-radius:3px;background:#29ABE2"></span>Surfista</span><span style="font-weight:700;color:#fff">8.210</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:13px"><span style="display:flex;align-items:center;gap:8px;color:#9FB3C6"><span style="width:11px;height:11px;border-radius:3px;background:#FF8C00"></span>Rider</span><span style="font-weight:700;color:#fff">3.890</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:13px"><span style="display:flex;align-items:center;gap:8px;color:#9FB3C6"><span style="width:11px;height:11px;border-radius:3px;background:#C9A84C"></span>Capitán</span><span style="font-weight:700;color:#fff">1.327</span></div>
+          </div>
+        </div>
+
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px">
+          <h3 style="margin:0 0 16px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Leaderboard global</h3>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <sc-for list="{{ leaders }}" as="l" hint-placeholder-count="6">
+              <div style="display:flex;align-items:center;gap:13px;padding:11px 8px;border-bottom:1px solid #16263a">
+                <span style="width:26px;text-align:center;font-family:Poppins,sans-serif;font-weight:800;font-size:15px;color:{{ l.rankColor }}">{{ l.rank }}</span>
+                <span style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0">{{ l.av }}</span>
+                <div style="flex:1"><div style="font-size:13.5px;color:#fff;font-weight:500">{{ l.name }}</div><div style="font-size:11.5px;color:#5E7790">{{ l.nivel }}</div></div>
+                <span style="font-family:Poppins,sans-serif;font-weight:700;font-size:14px;color:#FFB800;font-variant-numeric:tabular-nums">{{ l.pts }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATÁLOGO DE CANJES -->
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px"><h3 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Catálogo de canjes</h3><button style="background:linear-gradient(135deg,#29ABE2,#1A7DAF);color:#fff;border:none;border-radius:10px;padding:10px 16px;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px"><i class="ti ti-plus" style="font-size:16px"></i>Nueva recompensa</button></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+          <sc-for list="{{ canjes }}" as="c" hint-placeholder-count="6">
+            <div style="background:#0A1622;border:1px solid #16263a;border-radius:14px;padding:18px;display:flex;align-items:center;gap:14px">
+              <span style="width:44px;height:44px;border-radius:12px;background:rgba(41,171,226,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti {{ c.icon }}" style="font-size:22px;color:#29ABE2"></i></span>
+              <div style="flex:1"><div style="font-size:13.5px;color:#E6EEF5;font-weight:500;line-height:1.3">{{ c.name }}</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:15px;color:#FFB800;margin-top:4px;font-variant-numeric:tabular-nums">{{ c.cost }}</div></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.now=()=>{ const loc=(window.InfinitoI18n&&window.InfinitoI18n.locale)||'es-AR'; return new Date().toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit',second:'2-digit'}); };
+    this.leaders=[
+      { rank:1, name:'Flia. Romero', nivel:'Capitán', pts:'8.420' },
+      { rank:2, name:'Diego Fernández', nivel:'Capitán', pts:'7.110' },
+      { rank:3, name:'Carla Méndez', nivel:'Capitán', pts:'6.280' },
+      { rank:4, name:'Sofía Díaz', nivel:'Rider', pts:'4.950' },
+      { rank:5, name:'Juan Torres', nivel:'Rider', pts:'4.210' },
+      { rank:6, name:'María González', nivel:'Surfista', pts:'1.240' }
+    ];
+    this.canjes=[
+      { name:'10% descuento próxima entrada', cost:'500 pts', icon:'ti-discount' },
+      { name:'Upgrade a Acqua Plus', cost:'800 pts', icon:'ti-arrow-up-circle' },
+      { name:'Locker un día gratis', cost:'1.000 pts', icon:'ti-lock' },
+      { name:'Combo gastronómico premium', cost:'1.500 pts', icon:'ti-tools-kitchen-2' },
+      { name:'Acceso VIP Cabaña 1 día', cost:'2.500 pts', icon:'ti-crown' },
+      { name:'Entrada Acqua Fun gratis', cost:'5.000 pts', icon:'ti-ticket' }
+    ];
+    this.state={ clock:this.now() };
+  }
+  componentDidMount(){ this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang', this._lh); this._t=setInterval(()=>this.setState({clock:this.now()}),1000); this.draw(); }
+  componentWillUnmount(){ clearInterval(this._t); window.removeEventListener('infinito:lang', this._lh); if(this._c)this._c.destroy(); }
+  draw(){ if(typeof Chart==='undefined'){ setTimeout(()=>this.draw(),200); return; } const el=document.getElementById('chartLvl'); if(el&&!this._c){ this._c=new Chart(el,{type:'doughnut',data:{labels:['Explorador','Surfista','Rider','Capitán'],datasets:[{data:[11420,8210,3890,1327],backgroundColor:['#8EA9BE','#29ABE2','#FF8C00','#C9A84C'],borderColor:'#0F2034',borderWidth:3}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{display:false}}}}); } }
+  renderVals(){
+    return {
+      clock:this.state.clock,
+      leaders:this.leaders.map(l=>({ rank:l.rank, rankColor: l.rank===1?'#FFB800':(l.rank<=3?'#29ABE2':'#5E7790'), av:l.name.split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase(), name:l.name, nivel:l.nivel, pts:l.pts })),
+      canjes:this.canjes
+    };
+  }
+}
+</script>
+</body>
+</html>

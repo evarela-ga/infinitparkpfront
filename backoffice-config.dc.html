@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="i18n.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A1622}
+  ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#1E3048;border-radius:8px}
+</style>
+</helmet>
+
+<div style="font-family:Inter,system-ui,sans-serif;color:#E6EEF5;display:flex;min-height:100vh;background:#0A1622">
+
+  <aside style="width:260px;flex-shrink:0;background:#0D1B2A;border-right:1px solid #16263a;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto">
+    <div style="padding:22px 22px 16px"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito" style="height:32px;filter:brightness(0) invert(1)"></div>
+    <div style="display:flex;align-items:center;gap:11px;padding:12px 22px;margin:0 0 8px;border-top:1px solid #16263a;border-bottom:1px solid #16263a">
+      <span style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;flex-shrink:0">AD</span>
+      <div style="min-width:0"><div style="font-family:Poppins,sans-serif;font-weight:600;font-size:13.5px;color:#fff">Admin</div><div style="font-size:11.5px;color:#5E7790">Gerente General</div></div>
+    </div>
+    <nav style="flex:1;padding:8px 12px;display:flex;flex-direction:column;gap:2px">
+      <a href="backoffice-dashboard.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-layout-dashboard" style="font-size:19px"></i>Dashboard</a>
+      <a href="backoffice-acceso.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-door-enter" style="font-size:19px"></i>Control de acceso</a>
+      <a href="backoffice-estacionamiento.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-parking" style="font-size:19px"></i>Estacionamiento</a>
+      <a href="backoffice-tickets.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-ticket" style="font-size:19px"></i>Tickets &amp; Ventas</a>
+      <a href="backoffice-atracciones.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-rollercoaster" style="font-size:19px"></i>Atracciones</a>
+      <a href="backoffice-gastronomia.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-tools-kitchen-2" style="font-size:19px"></i>Gastronomía</a>
+      <a href="backoffice-crm.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-users" style="font-size:19px"></i>CRM</a>
+      <a href="backoffice-gamificacion.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-trophy" style="font-size:19px"></i>InfinitoPass</a>
+      <a href="backoffice-reportes.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-chart-line" style="font-size:19px"></i>Reportes</a>
+      <a href="backoffice-config.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:600;color:#29ABE2;background:rgba(41,171,226,.14);border-left:3px solid #29ABE2"><i class="ti ti-settings" style="font-size:19px"></i>Configuración</a>
+    </nav>
+    <div style="padding:12px;border-top:1px solid #16263a">
+      <a href="backoffice-login.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-logout" style="font-size:19px"></i>Cerrar sesión</a>
+    </div>
+  </aside>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <header style="position:sticky;top:0;z-index:30;background:#0F2034;border-bottom:1px solid #16263a;padding:14px clamp(16px,3vw,32px);display:flex;align-items:center;gap:18px">
+      <div style="position:relative;flex:1;max-width:420px"><i class="ti ti-search" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#56708a;font-size:18px"></i><input placeholder="Buscar visitante, ticket, patente…" style="width:100%;padding:11px 14px 11px 42px;border:1px solid #1E3048;border-radius:11px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"></div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:16px">
+        <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(45,189,126,.15);border:1px solid rgba(45,189,126,.3);color:#2DBD7E;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;padding:7px 13px;border-radius:999px"><span style="width:8px;height:8px;border-radius:50%;background:#2DBD7E"></span>Parque ABIERTO</span>
+        <span style="font-family:Inter;font-weight:700;font-size:14px;color:#9FB3C6;font-variant-numeric:tabular-nums">{{ clock }}</span>
+        <span style="position:relative;color:#9FB3C6;cursor:pointer"><i class="ti ti-bell" style="font-size:21px"></i><span style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:#FF5F5F;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span></span>
+        <span style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:13px">AD</span>
+      </div>
+    </header>
+
+    <main style="padding:clamp(18px,3vw,30px);display:flex;flex-direction:column;gap:22px;max-width:860px">
+      <div><h1 style="margin:0;font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#fff">Configuración del sistema</h1><p style="margin:5px 0 0;color:#5E7790;font-size:14px">Parámetros generales de la plataforma</p></div>
+
+      <!-- GENERAL -->
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px">
+        <h3 style="margin:0 0 18px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff;display:flex;align-items:center;gap:9px"><i class="ti ti-building" style="color:#29ABE2;font-size:19px"></i>General</h3>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <label style="display:flex;flex-direction:column;gap:7px"><span style="font-size:12.5px;color:#9FB3C6">Nombre del parque</span><input value="Infinito Water Park" style="padding:11px 14px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"></label>
+          <label style="display:flex;flex-direction:column;gap:7px"><span style="font-size:12.5px;color:#9FB3C6">Capacidad máxima</span><input value="12.500" style="padding:11px 14px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"></label>
+          <label style="display:flex;flex-direction:column;gap:7px"><span style="font-size:12.5px;color:#9FB3C6">Idioma por defecto</span><select style="padding:11px 14px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"><option>Español</option><option>English</option><option>Português</option></select></label>
+          <label style="display:flex;flex-direction:column;gap:7px"><span style="font-size:12.5px;color:#9FB3C6">Moneda</span><input value="ARS ($)" style="padding:11px 14px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"></label>
+        </div>
+      </div>
+
+      <!-- INTEGRACIONES -->
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px">
+        <h3 style="margin:0 0 18px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff;display:flex;align-items:center;gap:9px"><i class="ti ti-plug" style="color:#29ABE2;font-size:19px"></i>Integraciones y notificaciones</h3>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <sc-for list="{{ toggles }}" as="t" hint-placeholder-count="5">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 0;border-bottom:1px solid #16263a">
+              <div style="display:flex;align-items:center;gap:12px"><span style="width:38px;height:38px;border-radius:10px;background:#0A1622;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti {{ t.icon }}" style="font-size:19px;color:#29ABE2"></i></span><div><div style="font-size:14px;color:#E6EEF5;font-weight:500">{{ t.name }}</div><div style="font-size:12px;color:#5E7790">{{ t.desc }}</div></div></div>
+              <button onClick="{{ t.toggle }}" style="width:46px;height:26px;border-radius:999px;border:none;cursor:pointer;position:relative;flex-shrink:0;background:{{ t.track }};transition:background .2s"><span style="position:absolute;top:3px;left:{{ t.knob }};width:20px;height:20px;border-radius:50%;background:#fff;transition:left .2s"></span></button>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- USUARIOS -->
+      <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px"><h3 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff;display:flex;align-items:center;gap:9px"><i class="ti ti-user-shield" style="color:#29ABE2;font-size:19px"></i>Usuarios y roles</h3><button style="background:#142a40;color:#29ABE2;border:1px solid #1E3048;border-radius:10px;padding:9px 15px;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px"><i class="ti ti-plus" style="font-size:15px"></i>Agregar usuario</button></div>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <sc-for list="{{ users }}" as="u" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #16263a">
+              <span style="width:34px;height:34px;border-radius:50%;background:#142a40;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#9FB3C6;flex-shrink:0">{{ u.av }}</span>
+              <div style="flex:1"><div style="font-size:13.5px;color:#fff;font-weight:500">{{ u.name }}</div><div style="font-size:11.5px;color:#5E7790">{{ u.email }}</div></div>
+              <span style="font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:999px;background:rgba(41,171,226,.14);color:#5AC4ED">{{ u.role }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;gap:10px">
+        <button style="background:#142a40;color:#9FB3C6;border:1px solid #1E3048;border-radius:11px;padding:13px 22px;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;cursor:pointer">Cancelar</button>
+        <button onClick="{{ save }}" style="background:linear-gradient(135deg,#29ABE2,#1A7DAF);color:#fff;border:none;border-radius:11px;padding:13px 26px;font-family:Poppins,sans-serif;font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:8px"><i class="ti ti-device-floppy" style="font-size:18px"></i>{{ saveLabel }}</button>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.now=()=>{ const loc=(window.InfinitoI18n&&window.InfinitoI18n.locale)||'es-AR'; return new Date().toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit',second:'2-digit'}); };
+    this.TOG=[
+      { key:'mp', name:'Mercado Pago', desc:'Procesamiento de pagos online', icon:'ti-wallet', on:true },
+      { key:'wa', name:'WhatsApp Business API', desc:'Notificaciones y soporte', icon:'ti-brand-whatsapp', on:true },
+      { key:'mail', name:'Email transaccional', desc:'Envío de tickets y comprobantes', icon:'ti-mail', on:true },
+      { key:'push', name:'Notificaciones push', desc:'Alertas en la app del huésped', icon:'ti-bell', on:false },
+      { key:'rain', name:'Seguro de lluvia automático', desc:'Reprogramación por clima', icon:'ti-cloud-rain', on:true }
+    ];
+    this.users=[
+      { name:'Admin General', email:'admin@infinitowaterpark.com', role:'Super Admin' },
+      { name:'Laura Ferreyra', email:'laura@infinitowaterpark.com', role:'Operaciones' },
+      { name:'Pablo Sosa', email:'pablo@infinitowaterpark.com', role:'Boletería' },
+      { name:'Equipo F&B', email:'fyb@infinitowaterpark.com', role:'Gastronomía' }
+    ];
+    this.state={ clock:this.now(), tog:this.TOG.map(t=>t.on), saved:false };
+  }
+  componentDidMount(){ this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang', this._lh); this._t=setInterval(()=>this.setState({clock:this.now()}),1000); }
+  componentWillUnmount(){ clearInterval(this._t); window.removeEventListener('infinito:lang', this._lh); }
+  renderVals(){
+    return {
+      clock:this.state.clock,
+      toggles:this.TOG.map((t,i)=>{ const on=this.state.tog[i]; return { name:t.name, desc:t.desc, icon:t.icon, track: on?'#29ABE2':'#1E3048', knob: on?'23px':'3px', toggle:()=>this.setState(s=>{ const tg=[...s.tog]; tg[i]=!tg[i]; return {tog:tg}; }) }; }),
+      users:this.users.map(u=>({ av:u.name.split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase(), name:u.name, email:u.email, role:u.role })),
+      saveLabel: this.state.saved?'¡Guardado!':'Guardar cambios',
+      save:()=>{ this.setState({saved:true}); setTimeout(()=>{try{this.setState({saved:false});}catch(e){}},2000); }
+    };
+  }
+}
+</script>
+</body>
+</html>

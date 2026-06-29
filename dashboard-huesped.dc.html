@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="i18n.js"></script>
+<style>*{box-sizing:border-box}body{margin:0;background:#F0F6FA}</style>
+</helmet>
+
+<div style="--c1:#29ABE2;--deep:#1A7DAF;font-family:Inter,system-ui,sans-serif;color:#0D1B2A;min-height:100vh">
+
+  <!-- NAV -->
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:13px clamp(20px,4vw,48px);background:rgba(255,255,255,.92);backdrop-filter:blur(16px);box-shadow:0 2px 16px rgba(26,58,92,.08)">
+    <a href="index.dc.html" style="display:flex;align-items:center;text-decoration:none"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito Water Park" style="height:36px"></a>
+    <div style="display:flex;align-items:center;gap:clamp(12px,2vw,24px);flex-wrap:wrap;justify-content:flex-end">
+      <a href="mis-tickets.dc.html" style="text-decoration:none;color:#1A3A5C;font-family:Poppins,sans-serif;font-weight:600;font-size:14px">Mis tickets</a>
+      <a href="mi-pulsera.dc.html" style="text-decoration:none;color:#1A3A5C;font-family:Poppins,sans-serif;font-weight:600;font-size:14px">Mi pulsera</a>
+      <a href="infinito-pass.dc.html" style="text-decoration:none;color:#1A3A5C;font-family:Poppins,sans-serif;font-weight:600;font-size:14px">InfinitoPass</a>
+      <span style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);color:#fff;display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:14px">{{ avatar }}</span>
+      <a href="index.dc.html" style="text-decoration:none;color:#8EA9BE;display:flex;align-items:center" title="Cerrar sesión"><i class="ti ti-logout" style="font-size:20px"></i></a>
+    </div>
+  </nav>
+
+  <div style="max-width:1080px;margin:0 auto;padding:30px clamp(20px,5vw,40px) 90px">
+
+    <!-- GREETING -->
+    <div style="background:linear-gradient(135deg,#1A3A5C,#0D1B2A);border-radius:22px;padding:30px;color:#fff;display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:26px;position:relative;overflow:hidden">
+      <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#7DCFED);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:800;font-size:26px;flex-shrink:0">{{ avatar }}</div>
+      <div style="flex:1;min-width:200px">
+        <div style="font-family:Poppins,sans-serif;font-weight:800;font-size:26px;letter-spacing:-.01em">¡Hola, {{ firstName }}! 👋</div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px">
+          <span style="display:inline-flex;align-items:center;gap:7px;background:rgba(41,171,226,.2);border:1px solid rgba(41,171,226,.4);border-radius:999px;padding:5px 13px;font-size:13.5px;font-weight:600">🏄 Nivel {{ level }}</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;font-size:14px;color:rgba(255,255,255,.85)"><i class="ti ti-droplet-filled" style="color:#29ABE2"></i><strong style="font-variant-numeric:tabular-nums">{{ points }}</strong> puntos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUICK ACCESS -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:30px">
+      <a href="mis-tickets.dc.html" style="text-decoration:none;background:#fff;border-radius:18px;padding:22px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 4px 24px rgba(26,58,92,.08);transition:all .2s" style-hover="transform:translateY(-4px);box-shadow:0 14px 34px rgba(26,58,92,.16)"><span style="width:52px;height:52px;border-radius:15px;background:#E8F7FD;display:flex;align-items:center;justify-content:center"><i class="ti ti-ticket" style="font-size:26px;color:#29ABE2"></i></span><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:14.5px;color:#1A3A5C">Mis tickets</span></a>
+      <a href="mi-pulsera.dc.html" style="text-decoration:none;background:#fff;border-radius:18px;padding:22px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 4px 24px rgba(26,58,92,.08);transition:all .2s" style-hover="transform:translateY(-4px);box-shadow:0 14px 34px rgba(26,58,92,.16)"><span style="width:52px;height:52px;border-radius:15px;background:#FFF1E0;display:flex;align-items:center;justify-content:center"><i class="ti ti-wave-saw-tool" style="font-size:26px;color:#FF8C00"></i></span><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:14.5px;color:#1A3A5C">Mi pulsera</span></a>
+      <a href="planificador.dc.html" style="text-decoration:none;background:#fff;border-radius:18px;padding:22px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 4px 24px rgba(26,58,92,.08);transition:all .2s" style-hover="transform:translateY(-4px);box-shadow:0 14px 34px rgba(26,58,92,.16)"><span style="width:52px;height:52px;border-radius:15px;background:#E6F7EF;display:flex;align-items:center;justify-content:center"><i class="ti ti-map-2" style="font-size:26px;color:#2DBD7E"></i></span><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:14.5px;color:#1A3A5C">Planificar visita</span></a>
+      <a href="infinito-pass.dc.html" style="text-decoration:none;background:#fff;border-radius:18px;padding:22px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 4px 24px rgba(26,58,92,.08);transition:all .2s" style-hover="transform:translateY(-4px);box-shadow:0 14px 34px rgba(26,58,92,.16)"><span style="width:52px;height:52px;border-radius:15px;background:#F3ECFB;display:flex;align-items:center;justify-content:center"><i class="ti ti-trophy" style="font-size:26px;color:#8B5CF6"></i></span><span style="font-family:Poppins,sans-serif;font-weight:600;font-size:14.5px;color:#1A3A5C">InfinitoPass</span></a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px">
+      <!-- PRÓXIMA VISITA -->
+      <div style="background:#fff;border-radius:20px;padding:26px;box-shadow:0 4px 24px rgba(26,58,92,.08)">
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#1A3A5C;margin-bottom:18px">Tu próxima visita</div>
+        <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+          <div id="dash-qr" style="width:104px;height:104px;border-radius:12px;overflow:hidden;flex-shrink:0;border:1px solid #EEF4F8"></div>
+          <div style="flex:1;min-width:150px">
+            <div style="display:inline-block;background:#E8F7FD;color:#1A7DAF;font-family:Poppins,sans-serif;font-weight:700;font-size:12px;padding:4px 10px;border-radius:999px;margin-bottom:8px">{{ nextType }}</div>
+            <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#0D1B2A">{{ nextDate }}</div>
+            <div style="color:#8EA9BE;font-size:13.5px;margin-bottom:14px">9:30 – 20:00 hs · {{ orderId }}</div>
+            <a href="mis-tickets.dc.html" style="text-decoration:none;color:#1A7DAF;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:6px">Ver ticket completo <i class="ti ti-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- INFINITOPASS WIDGET -->
+      <div style="background:#fff;border-radius:20px;padding:26px;box-shadow:0 4px 24px rgba(26,58,92,.08)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#1A3A5C">InfinitoPass</div><span style="font-family:Poppins,sans-serif;font-weight:700;font-size:13px;color:#FF8C00">🏄 {{ level }}</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:13px;color:#8EA9BE;margin-bottom:8px"><span style="font-variant-numeric:tabular-nums">{{ points }} pts</span><span>{{ nextLevel }} · {{ nextLevelPts }}</span></div>
+        <div style="height:12px;border-radius:999px;background:#EEF4F8;overflow:hidden;margin-bottom:16px"><div style="height:100%;border-radius:999px;background:linear-gradient(90deg,#29ABE2,#1A7DAF);width:{{ progress }}"></div></div>
+        <div style="display:flex;align-items:center;gap:10px;background:#FFF6E9;border-radius:12px;padding:13px 15px;font-size:13.5px;color:#8a5a00"><i class="ti ti-gift" style="font-size:18px"></i>Te faltan <strong>{{ toNext }} pts</strong> para desbloquear el nivel {{ nextLevel }}</div>
+      </div>
+    </div>
+
+    <!-- ÚLTIMAS VISITAS -->
+    <div style="background:#fff;border-radius:20px;padding:26px;box-shadow:0 4px 24px rgba(26,58,92,.08);margin-top:22px">
+      <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#1A3A5C;margin-bottom:18px">Últimas visitas</div>
+      <div style="display:flex;flex-direction:column">
+        <sc-for list="{{ visits }}" as="v" hint-placeholder-count="3">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #F0F6FA">
+            <div style="display:flex;align-items:center;gap:14px"><span style="width:42px;height:42px;border-radius:12px;background:#E8F7FD;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ti ti-calendar-check" style="color:#29ABE2;font-size:20px"></i></span><div><div style="font-family:Poppins,sans-serif;font-weight:600;font-size:14.5px;color:#1A3A5C">{{ v.date }}</div><div style="font-size:13px;color:#8EA9BE">{{ v.type }} · +{{ v.pts }} pts</div></div></div>
+            <button style="background:#F0F6FA;color:#1A7DAF;border:none;border-radius:10px;padding:9px 15px;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;cursor:pointer">Calificar</button>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <!-- BENEFICIOS -->
+    <div style="margin-top:22px">
+      <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#1A3A5C;margin-bottom:14px">Beneficios activos</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <span style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #E8F0F6;border-radius:999px;padding:10px 16px;font-size:13.5px;font-weight:600;color:#1A3A5C;box-shadow:0 2px 12px rgba(26,58,92,.06)"><i class="ti ti-discount-2" style="color:#2DBD7E;font-size:18px"></i>10% off próxima visita</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #E8F0F6;border-radius:999px;padding:10px 16px;font-size:13.5px;font-weight:600;color:#1A3A5C;box-shadow:0 2px 12px rgba(26,58,92,.06)"><i class="ti ti-lock-open" style="color:#29ABE2;font-size:18px"></i>Locker gratis 1 día</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #E8F0F6;border-radius:999px;padding:10px 16px;font-size:13.5px;font-weight:600;color:#1A3A5C;box-shadow:0 2px 12px rgba(26,58,92,.06)"><i class="ti ti-cake" style="color:#FF8C00;font-size:18px"></i>Bonus de cumpleaños</span>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const STATE_KEY='infinito_app_state';
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    let s={}; try{ s=JSON.parse(localStorage.getItem(STATE_KEY)||'{}'); }catch(e){}
+    this.user=s.user||{ name:'María González', points:1240, level:'Surfista', avatar:'MG' };
+    this.order=s.order||{};
+    this.cart=s.cart||{};
+  }
+  componentDidMount(){
+    const make=()=>{
+      if(typeof QRCode==='undefined'){ setTimeout(make,200); return; }
+      const el=document.getElementById('dash-qr');
+      if(el && !el.hasChildNodes()){
+        const code=(this.order.orderId||'INF-2026-0847')+'-A';
+        new QRCode(el,{ text:code, width:104, height:104, colorDark:'#0D1B2A', colorLight:'#ffffff', correctLevel:QRCode.CorrectLevel.M });
+      }
+    };
+    make();
+    this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang',this._lh);
+  }
+  componentDidUpdate(){ const el=document.getElementById('dash-qr'); if(el && !el.hasChildNodes()) this.componentDidMount(); }
+  componentWillUnmount(){ if(this._lh) window.removeEventListener('infinito:lang',this._lh); }
+  loc(){ return (window.InfinitoI18n&&window.InfinitoI18n.locale)||'es-AR'; }
+  renderVals(){
+    const u=this.user;
+    const name=u.name||'María González';
+    const first=name.split(' ')[0];
+    const avatar=u.avatar||name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+    const pts=u.points||1240;
+    // level bands
+    const bands=[['Explorador',0,500],['Surfista',500,1500],['Rider',1500,3000],['Capitán',3000,99999]];
+    let band=bands.find(b=>pts>=b[1]&&pts<b[2])||bands[1];
+    const idx=bands.indexOf(band);
+    const next=bands[Math.min(idx+1,bands.length-1)];
+    const span=band[2]-band[1];
+    const prog=Math.min(100,Math.round((pts-band[1])/span*100));
+    const toNext=Math.max(0,next[1]-pts);
+
+    let nextDate='Sábado 18 de enero de 2026';
+    if(this.cart.date){ const o=new Date(this.cart.date+'T00:00:00'); nextDate=o.toLocaleDateString(this.loc(),{weekday:'long',day:'numeric',month:'long',year:'numeric'}); nextDate=nextDate.charAt(0).toUpperCase()+nextDate.slice(1); }
+
+    const visits=[
+      { date:'14 dic 2025', type:'Acqua Plus', pts:180 },
+      { date:'2 nov 2025', type:'Acqua Fun', pts:80 },
+      { date:'19 oct 2025', type:'Acqua Fun', pts:80 }
+    ];
+    return {
+      avatar, firstName:first, level:u.level||band[0],
+      points: pts.toLocaleString('es-AR'),
+      nextType:(this.order&&this.order.type)||'Acqua Plus',
+      nextDate, orderId:this.order.orderId||'INF-2026-0847',
+      nextLevel:next[0], nextLevelPts:next[1].toLocaleString('es-AR')+' pts',
+      progress:prog+'%', toNext:toNext.toLocaleString('es-AR'),
+      visits
+    };
+  }
+}
+</script>
+</body>
+</html>

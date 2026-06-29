@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="i18n.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#F0F6FA}
+  input::placeholder{color:#A9BECE}
+  input:focus{border-color:#29ABE2 !important}
+  @keyframes waveMove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
+</helmet>
+
+<div style="--c1:#29ABE2;--deep:#1A7DAF;font-family:Inter,system-ui,sans-serif;color:#0D1B2A;min-height:100vh;display:flex">
+
+  <!-- LEFT VISUAL -->
+  <div style="flex:1;min-width:0;position:relative;overflow:hidden;background:linear-gradient(160deg,#29ABE2,#1A7DAF 60%,#1A3A5C);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px;color:#fff;text-align:center">
+    <a href="index.dc.html" style="position:absolute;top:28px;left:28px;display:flex;align-items:center;text-decoration:none;z-index:2"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito Water Park" style="height:40px;filter:brightness(0) invert(1)"></a>
+    <div style="position:relative;z-index:2;max-width:420px">
+      <img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito Water Park" style="height:72px;filter:brightness(0) invert(1);margin-bottom:28px">
+      <h2 style="margin:0 0 14px;font-family:Poppins,sans-serif;font-weight:800;font-size:34px;letter-spacing:-.02em;line-height:1.1">Tu mundo de agua, siempre con vos</h2>
+      <p style="margin:0;font-size:16px;opacity:.85;line-height:1.6">Guardá tus tickets, controlá tu pulsera cashless, planificá tu visita y sumá puntos InfinitoPass en cada ola.</p>
+    </div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:38%;pointer-events:none">
+      <div style="position:absolute;bottom:0;left:0;width:200%;height:100%;animation:waveMove 13s linear infinite"><svg viewBox="0 0 2880 200" width="100%" height="100%" preserveAspectRatio="none"><path d="M0,70 C200,120 340,20 720,70 C1100,120 1240,20 1440,70 C1640,120 1780,20 2160,70 C2540,120 2680,20 2880,70 L2880,200 L0,200 Z" fill="#ffffff" opacity="0.12"/></svg></div>
+      <div style="position:absolute;bottom:0;left:0;width:200%;height:70%;animation:waveMove 8s linear infinite reverse"><svg viewBox="0 0 2880 180" width="100%" height="100%" preserveAspectRatio="none"><path d="M0,60 C180,100 540,20 720,60 C900,100 1260,20 1440,60 C1620,100 1980,20 2160,60 C2340,100 2700,20 2880,60 L2880,180 L0,180 Z" fill="#ffffff" opacity="0.16"/></svg></div>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM -->
+  <div style="width:min(48%,560px);background:#fff;display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,5vw,64px);min-width:340px">
+    <div style="width:100%;max-width:380px;margin:0 auto">
+      <div style="display:flex;gap:6px;background:#F0F6FA;border-radius:14px;padding:5px;margin-bottom:32px">
+        <button onClick="{{ tabLogin }}" style="{{ loginTab }}">Ingresá</button>
+        <button onClick="{{ tabReg }}" style="{{ regTab }}">Registrate</button>
+      </div>
+
+      <!-- LOGIN -->
+      <sc-if value="{{ isLogin }}" hint-placeholder-val="{{ true }}">
+        <div>
+          <h1 style="margin:0 0 6px;font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#1A3A5C">Bienvenido de nuevo</h1>
+          <p style="margin:0 0 26px;color:#8EA9BE;font-size:14.5px">Ingresá para ver tus tickets y tu pulsera.</p>
+          <label style="display:flex;flex-direction:column;gap:7px;margin-bottom:16px"><span style="font-size:13px;font-weight:600;color:#3D5166">Email</span><input placeholder="vos@email.com" style="padding:13px 15px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:15px;outline:none"></label>
+          <label style="display:flex;flex-direction:column;gap:7px;margin-bottom:10px"><span style="font-size:13px;font-weight:600;color:#3D5166">Contraseña</span><span style="position:relative;display:flex"><input type="{{ pwType }}" placeholder="••••••••" style="flex:1;padding:13px 44px 13px 15px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:15px;outline:none"><button onClick="{{ togglePw }}" style="position:absolute;right:6px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#8EA9BE;width:34px;height:34px;display:flex;align-items:center;justify-content:center"><i class="ti {{ pwIcon }}" style="font-size:19px"></i></button></span></label>
+          <div style="text-align:right;margin-bottom:22px"><a href="#" style="color:#1A7DAF;font-size:13.5px;text-decoration:none;font-weight:600">¿Olvidaste tu contraseña?</a></div>
+          <button onClick="{{ enter }}" style="width:100%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);color:#fff;border:none;border-radius:12px;padding:15px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 10px 26px rgba(41,171,226,.35)">Ingresar</button>
+          <div style="display:flex;align-items:center;gap:14px;margin:24px 0;color:#C2D2DE;font-size:13px"><span style="flex:1;height:1px;background:#EEF4F8"></span>o continuá con<span style="flex:1;height:1px;background:#EEF4F8"></span></div>
+          <div style="display:flex;gap:12px">
+            <button style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #DDEAF2;background:#fff;border-radius:11px;padding:12px;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;color:#3D5166;cursor:pointer"><i class="ti ti-brand-google" style="font-size:18px;color:#EA4335"></i>Google</button>
+            <button style="flex:1;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #DDEAF2;background:#fff;border-radius:11px;padding:12px;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;color:#3D5166;cursor:pointer"><i class="ti ti-brand-facebook" style="font-size:18px;color:#1877F2"></i>Facebook</button>
+          </div>
+        </div>
+      </sc-if>
+
+      <!-- REGISTER -->
+      <sc-if value="{{ isReg }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <h1 style="margin:0 0 6px;font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#1A3A5C">Creá tu cuenta</h1>
+          <p style="margin:0 0 24px;color:#8EA9BE;font-size:14.5px">Sumá +50 puntos InfinitoPass al completar tu perfil.</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+            <input placeholder="Nombre" style="padding:12px 14px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:14.5px;outline:none">
+            <input placeholder="Apellido" style="padding:12px 14px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:14.5px;outline:none">
+            <input placeholder="Email" style="grid-column:span 2;padding:12px 14px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:14.5px;outline:none">
+            <input placeholder="DNI" style="padding:12px 14px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:14.5px;outline:none">
+            <input placeholder="WhatsApp" style="padding:12px 14px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:14.5px;outline:none">
+            <input type="{{ pwType }}" placeholder="Contraseña" style="padding:12px 14px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:14.5px;outline:none">
+            <input type="{{ pwType }}" placeholder="Repetir contraseña" style="padding:12px 14px;border:1px solid #DDEAF2;border-radius:11px;font-family:Inter;font-size:14.5px;outline:none">
+          </div>
+          <label style="display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;cursor:pointer"><span style="width:20px;height:20px;border-radius:6px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;border:1.5px solid #29ABE2;background:#29ABE2"><i class="ti ti-check" style="font-size:13px;color:#fff"></i></span><span style="font-size:13px;color:#3D5166;line-height:1.5">Acepto los términos y quiero recibir promociones de Infinito Water Park</span></label>
+          <button onClick="{{ register }}" style="width:100%;background:linear-gradient(135deg,#FF8C00,#FF6B00);color:#fff;border:none;border-radius:12px;padding:15px;font-family:Poppins,sans-serif;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 10px 26px rgba(255,140,0,.35)">Crear mi cuenta</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const STATE_KEY='infinito_app_state';
+class Component extends DCLogic {
+  state={ tab:'login', showPw:false };
+  componentDidMount(){ this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang',this._lh); }
+  componentWillUnmount(){ if(this._lh) window.removeEventListener('infinito:lang',this._lh); }
+  login(){
+    let s={}; try{ s=JSON.parse(localStorage.getItem(STATE_KEY)||'{}'); }catch(e){}
+    s.user=Object.assign({ name:'María González', email:'maria@email.com', dni:'34567890', points:1240, level:'Surfista', avatar:'MG' }, s.user, { loggedIn:true });
+    localStorage.setItem(STATE_KEY, JSON.stringify(s));
+    window.location.href='dashboard-huesped.dc.html';
+  }
+  renderVals(){
+    const isLogin=this.state.tab==='login';
+    const tabBase='flex:1;border:none;cursor:pointer;font-family:Poppins,sans-serif;font-weight:700;font-size:14.5px;padding:11px;border-radius:10px;transition:all .18s;';
+    const on='background:#fff;color:#1A7DAF;box-shadow:0 2px 8px rgba(26,58,92,.1)';
+    const off='background:transparent;color:#8EA9BE';
+    return {
+      isLogin, isReg:!isLogin,
+      tabLogin:()=>this.setState({tab:'login'}), tabReg:()=>this.setState({tab:'register'}),
+      loginTab:tabBase+(isLogin?on:off), regTab:tabBase+(!isLogin?on:off),
+      pwType:this.state.showPw?'text':'password',
+      pwIcon:this.state.showPw?'ti-eye-off':'ti-eye',
+      togglePw:()=>this.setState(s=>({showPw:!s.showPw})),
+      enter:()=>this.login(),
+      register:()=>this.login()
+    };
+  }
+}
+</script>
+</body>
+</html>

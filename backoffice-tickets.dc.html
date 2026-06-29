@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="i18n.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A1622}
+  ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#1E3048;border-radius:8px}
+</style>
+</helmet>
+
+<div style="font-family:Inter,system-ui,sans-serif;color:#E6EEF5;display:flex;min-height:100vh;background:#0A1622">
+
+  <aside style="width:260px;flex-shrink:0;background:#0D1B2A;border-right:1px solid #16263a;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto">
+    <div style="padding:22px 22px 16px"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito" style="height:32px;filter:brightness(0) invert(1)"></div>
+    <div style="display:flex;align-items:center;gap:11px;padding:12px 22px;margin:0 0 8px;border-top:1px solid #16263a;border-bottom:1px solid #16263a">
+      <span style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;flex-shrink:0">AD</span>
+      <div style="min-width:0"><div style="font-family:Poppins,sans-serif;font-weight:600;font-size:13.5px;color:#fff">Admin</div><div style="font-size:11.5px;color:#5E7790">Gerente General</div></div>
+    </div>
+    <nav style="flex:1;padding:8px 12px;display:flex;flex-direction:column;gap:2px">
+      <a href="backoffice-dashboard.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-layout-dashboard" style="font-size:19px"></i>Dashboard</a>
+      <a href="backoffice-acceso.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-door-enter" style="font-size:19px"></i>Control de acceso</a>
+      <a href="backoffice-estacionamiento.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-parking" style="font-size:19px"></i>Estacionamiento</a>
+      <a href="backoffice-tickets.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:600;color:#29ABE2;background:rgba(41,171,226,.14);border-left:3px solid #29ABE2"><i class="ti ti-ticket" style="font-size:19px"></i>Tickets &amp; Ventas</a>
+      <a href="backoffice-atracciones.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-rollercoaster" style="font-size:19px"></i>Atracciones</a>
+      <a href="backoffice-gastronomia.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-tools-kitchen-2" style="font-size:19px"></i>Gastronomía</a>
+      <a href="backoffice-crm.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-users" style="font-size:19px"></i>CRM</a>
+      <a href="backoffice-gamificacion.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-trophy" style="font-size:19px"></i>InfinitoPass</a>
+      <a href="backoffice-reportes.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-chart-line" style="font-size:19px"></i>Reportes</a>
+      <a href="backoffice-config.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-settings" style="font-size:19px"></i>Configuración</a>
+    </nav>
+    <div style="padding:12px;border-top:1px solid #16263a">
+      <a href="backoffice-login.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-logout" style="font-size:19px"></i>Cerrar sesión</a>
+    </div>
+  </aside>
+
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <header style="position:sticky;top:0;z-index:30;background:#0F2034;border-bottom:1px solid #16263a;padding:14px clamp(16px,3vw,32px);display:flex;align-items:center;gap:18px">
+      <div style="position:relative;flex:1;max-width:420px"><i class="ti ti-search" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#56708a;font-size:18px"></i><input placeholder="Buscar visitante, ticket, patente…" style="width:100%;padding:11px 14px 11px 42px;border:1px solid #1E3048;border-radius:11px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"></div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:16px">
+        <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(45,189,126,.15);border:1px solid rgba(45,189,126,.3);color:#2DBD7E;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;padding:7px 13px;border-radius:999px"><span style="width:8px;height:8px;border-radius:50%;background:#2DBD7E"></span>Parque ABIERTO</span>
+        <span style="font-family:Inter;font-weight:700;font-size:14px;color:#9FB3C6;font-variant-numeric:tabular-nums">{{ clock }}</span>
+        <span style="position:relative;color:#9FB3C6;cursor:pointer"><i class="ti ti-bell" style="font-size:21px"></i><span style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:#FF5F5F;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span></span>
+        <span style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:13px">AD</span>
+      </div>
+    </header>
+
+    <main style="padding:clamp(18px,3vw,30px);display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:14px;flex-wrap:wrap">
+        <div><h1 style="margin:0;font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#fff">Tickets &amp; Ventas</h1><p style="margin:5px 0 0;color:#5E7790;font-size:14px">Rendimiento comercial del día</p></div>
+        <button onClick="{{ exportCsv }}" style="background:#142a40;color:#29ABE2;border:1px solid #1E3048;border-radius:10px;padding:11px 18px;font-family:Poppins,sans-serif;font-weight:600;font-size:13.5px;cursor:pointer;display:flex;align-items:center;gap:7px"><i class="ti ti-file-download" style="font-size:17px"></i>Exportar CSV</button>
+      </div>
+
+      <!-- KPIs -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase;letter-spacing:.04em">Vendidos hoy</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:30px;color:#29ABE2;margin-top:8px;font-variant-numeric:tabular-nums">5.210</div><div style="font-size:12.5px;color:#2DBD7E;margin-top:4px">▲ 9% vs ayer</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase;letter-spacing:.04em">Ingresos</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:28px;color:#fff;margin-top:8px;font-variant-numeric:tabular-nums">$482,3M</div><div style="font-size:12.5px;color:#5E7790;margin-top:4px">Ticket prom. $92.580</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase;letter-spacing:.04em">Online</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:30px;color:#fff;margin-top:8px;font-variant-numeric:tabular-nums">3.491</div><div style="font-size:12.5px;color:#5E7790;margin-top:4px">67% del total</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase;letter-spacing:.04em">Boletería</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:30px;color:#fff;margin-top:8px;font-variant-numeric:tabular-nums">1.719</div><div style="font-size:12.5px;color:#5E7790;margin-top:4px">33% del total</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="font-size:12px;color:#5E7790;text-transform:uppercase;letter-spacing:.04em">Reembolsos</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:30px;color:#FF8C00;margin-top:8px">3</div><div style="font-size:12.5px;color:#5E7790;margin-top:4px">$287.400</div></div>
+      </div>
+
+      <!-- CHARTS -->
+      <div style="display:grid;grid-template-columns:1.7fr 1fr;gap:22px">
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px;min-width:0">
+          <h3 style="margin:0 0 16px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Ventas por hora</h3>
+          <div style="height:280px"><canvas id="chartHora"></canvas></div>
+        </div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px;min-width:0">
+          <h3 style="margin:0 0 14px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Mix por tipo</h3>
+          <div style="height:210px;position:relative"><canvas id="chartTipo"></canvas></div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:16px">
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:13px"><span style="display:flex;align-items:center;gap:8px;color:#9FB3C6"><span style="width:11px;height:11px;border-radius:3px;background:#29ABE2"></span>Acqua Fun</span><span style="font-weight:700;color:#fff">2.847</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:13px"><span style="display:flex;align-items:center;gap:8px;color:#9FB3C6"><span style="width:11px;height:11px;border-radius:3px;background:#FF8C00"></span>Acqua Plus</span><span style="font-weight:700;color:#fff">1.890</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:13px"><span style="display:flex;align-items:center;gap:8px;color:#9FB3C6"><span style="width:11px;height:11px;border-radius:3px;background:#C9A84C"></span>Tribu VIP</span><span style="font-weight:700;color:#fff">473</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABLE + BOLETERÍA -->
+      <div style="display:grid;grid-template-columns:1.7fr 1fr;gap:22px;align-items:start">
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:22px;min-width:0">
+          <h3 style="margin:0 0 16px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Detalle de ventas</h3>
+          <div style="overflow-x:auto">
+            <table style="width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px">
+              <thead><tr style="text-align:left;color:#5E7790;font-size:12px;text-transform:uppercase;letter-spacing:.03em"><th style="padding:10px 8px;font-weight:600">Código</th><th style="padding:10px 8px;font-weight:600">Cliente</th><th style="padding:10px 8px;font-weight:600">Tipo</th><th style="padding:10px 8px;font-weight:600">Canal</th><th style="padding:10px 8px;font-weight:600;text-align:right">Monto</th></tr></thead>
+              <tbody>
+                <sc-for list="{{ rows }}" as="r" hint-placeholder-count="6">
+                  <tr style="border-top:1px solid #16263a"><td style="padding:11px 8px;color:#9FB3C6;font-variant-numeric:tabular-nums">{{ r.code }}</td><td style="padding:11px 8px;color:#fff">{{ r.name }}</td><td style="padding:11px 8px;color:#9FB3C6">{{ r.type }}</td><td style="padding:11px 8px"><span style="font-size:11.5px;padding:3px 9px;border-radius:999px;{{ r.chanStyle }}">{{ r.chan }}</span></td><td style="padding:11px 8px;text-align:right;font-weight:700;color:#fff;font-variant-numeric:tabular-nums">{{ r.amt }}</td></tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:22px">
+          <h3 style="margin:0 0 16px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Boletería manual</h3>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <input placeholder="Nombre del cliente" style="padding:12px 14px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none">
+            <select style="padding:12px 14px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"><option>Acqua Fun</option><option>Acqua Plus</option><option>Tribu VIP</option></select>
+            <div style="display:flex;gap:10px"><input placeholder="Cant." style="width:90px;padding:12px 14px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"><input placeholder="Efectivo / tarjeta" style="flex:1;padding:12px 14px;border:1px solid #1E3048;border-radius:10px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"></div>
+            <button onClick="{{ emitir }}" style="background:linear-gradient(135deg,#29ABE2,#1A7DAF);color:#fff;border:none;border-radius:11px;padding:13px;font-family:Poppins,sans-serif;font-weight:700;font-size:14.5px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px"><i class="ti ti-printer" style="font-size:18px"></i>Emitir e imprimir</button>
+            <sc-if value="{{ emitido }}" hint-placeholder-val="{{ false }}"><div style="background:rgba(45,189,126,.12);border:1px solid rgba(45,189,126,.3);color:#2DBD7E;border-radius:10px;padding:12px;font-size:13px;display:flex;align-items:center;gap:8px"><i class="ti ti-check" style="font-size:17px"></i>Ticket emitido e impreso.</div></sc-if>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state={ clock:this.now(), emitido:false };
+    this.ROWS=[
+      { code:'INF-2026-0847', name:'María González', type:'Acqua Plus', chan:'Online', amt:'$198.000' },
+      { code:'INF-2026-0848', name:'Lucas Pérez', type:'Acqua Fun', chan:'Boletería', amt:'$99.000' },
+      { code:'INF-2026-0849', name:'Flia. Romero', type:'Tribu VIP', chan:'Online', amt:'$318.000' },
+      { code:'INF-2026-0850', name:'Sofía Díaz', type:'Acqua Fun', chan:'Online', amt:'$79.200' },
+      { code:'INF-2026-0851', name:'Colegio San Martín', type:'Acqua Fun', chan:'Boletería', amt:'$1.188.000' },
+      { code:'INF-2026-0852', name:'Martín Aguirre', type:'Acqua Plus', chan:'Online', amt:'$129.000' }
+    ];
+  }
+  now(){ const loc=(window.InfinitoI18n&&window.InfinitoI18n.locale)||'es-AR'; return new Date().toLocaleTimeString(loc,{hour:'2-digit',minute:'2-digit',second:'2-digit'}); }
+  componentDidMount(){
+    this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang', this._lh);
+    this._t=setInterval(()=>this.setState({clock:this.now()}),1000);
+    this.drawCharts();
+  }
+  componentWillUnmount(){ clearInterval(this._t); window.removeEventListener('infinito:lang', this._lh); if(this._c1)this._c1.destroy(); if(this._c2)this._c2.destroy(); }
+  drawCharts(){
+    if(typeof Chart==='undefined'){ setTimeout(()=>this.drawCharts(),200); return; }
+    const hora=document.getElementById('chartHora'); if(hora && !this._c1){
+      this._c1=new Chart(hora,{type:'bar',data:{labels:['9','10','11','12','13','14','15','16','17','18','19'],datasets:[{data:[180,420,610,720,840,690,520,610,560,430,210],backgroundColor:'#29ABE2',borderRadius:6}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#56708a'}},y:{grid:{color:'#16263a'},ticks:{color:'#56708a'}}}}});
+    }
+    const tipo=document.getElementById('chartTipo'); if(tipo && !this._c2){
+      this._c2=new Chart(tipo,{type:'doughnut',data:{labels:['Acqua Fun','Acqua Plus','Tribu VIP'],datasets:[{data:[2847,1890,473],backgroundColor:['#29ABE2','#FF8C00','#C9A84C'],borderColor:'#0F2034',borderWidth:3}]},options:{responsive:true,maintainAspectRatio:false,cutout:'64%',plugins:{legend:{display:false}}}});
+    }
+  }
+  exportCsv(){
+    const header='codigo,cliente,tipo,canal,monto\n';
+    const body=this.ROWS.map(r=>[r.code,r.name,r.type,r.chan,r.amt].join(',')).join('\n');
+    const blob=new Blob([header+body],{type:'text/csv'});
+    const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='ventas-infinito.csv'; a.click();
+  }
+  renderVals(){
+    return {
+      clock:this.state.clock,
+      rows:this.ROWS.map(r=>({ code:r.code, name:r.name, type:r.type, amt:r.amt, chan:r.chan, chanStyle: r.chan==='Online'?'background:rgba(41,171,226,.16);color:#5AC4ED':'background:rgba(255,140,0,.16);color:#FFB35C' })),
+      exportCsv:()=>this.exportCsv(),
+      emitido:this.state.emitido,
+      emitir:()=>{ this.setState({emitido:true}); setTimeout(()=>{ try{this.setState({emitido:false});}catch(e){} },2500); }
+    };
+  }
+}
+</script>
+</body>
+</html>

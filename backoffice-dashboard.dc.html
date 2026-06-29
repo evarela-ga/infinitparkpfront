@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="i18n.js"></script>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#0A1622}
+  ::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-thumb{background:#1E3048;border-radius:8px}
+</style>
+</helmet>
+
+<div style="font-family:Inter,system-ui,sans-serif;color:#E6EEF5;display:flex;min-height:100vh;background:#0A1622">
+
+  <!-- SIDEBAR -->
+  <aside style="width:260px;flex-shrink:0;background:#0D1B2A;border-right:1px solid #16263a;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;overflow-y:auto">
+    <div style="padding:22px 22px 16px"><img src="uploads/logo-waterpark-6e0a2071.png" alt="Infinito" style="height:32px;filter:brightness(0) invert(1)"></div>
+    <div style="display:flex;align-items:center;gap:11px;padding:12px 22px;margin:0 0 8px;border-top:1px solid #16263a;border-bottom:1px solid #16263a">
+      <span style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:13px;flex-shrink:0">AD</span>
+      <div style="min-width:0"><div style="font-family:Poppins,sans-serif;font-weight:600;font-size:13.5px;color:#fff">Admin</div><div style="font-size:11.5px;color:#5E7790">Gerente General</div></div>
+    </div>
+    <nav style="flex:1;padding:8px 12px;display:flex;flex-direction:column;gap:2px">
+      <a href="backoffice-dashboard.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:600;color:#29ABE2;background:rgba(41,171,226,.14);border-left:3px solid #29ABE2"><i class="ti ti-layout-dashboard" style="font-size:19px"></i>Dashboard</a>
+      <a href="backoffice-acceso.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-door-enter" style="font-size:19px"></i>Control de acceso</a>
+      <a href="backoffice-estacionamiento.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-parking" style="font-size:19px"></i>Estacionamiento</a>
+      <a href="backoffice-tickets.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-ticket" style="font-size:19px"></i>Tickets &amp; Ventas</a>
+      <a href="backoffice-atracciones.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-rollercoaster" style="font-size:19px"></i>Atracciones</a>
+      <a href="backoffice-gastronomia.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-tools-kitchen-2" style="font-size:19px"></i>Gastronomía</a>
+      <a href="backoffice-crm.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-users" style="font-size:19px"></i>CRM</a>
+      <a href="backoffice-gamificacion.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-trophy" style="font-size:19px"></i>InfinitoPass</a>
+      <a href="backoffice-reportes.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-chart-line" style="font-size:19px"></i>Reportes</a>
+      <a href="backoffice-config.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-settings" style="font-size:19px"></i>Configuración</a>
+    </nav>
+    <div style="padding:12px;border-top:1px solid #16263a">
+      <a href="backoffice-login.dc.html" style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:500;color:#9FB3C6" style-hover="background:#13263a;color:#fff"><i class="ti ti-logout" style="font-size:19px"></i>Cerrar sesión</a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div style="flex:1;min-width:0;display:flex;flex-direction:column">
+    <!-- TOPBAR -->
+    <header style="position:sticky;top:0;z-index:30;background:#0F2034;border-bottom:1px solid #16263a;padding:14px clamp(16px,3vw,32px);display:flex;align-items:center;gap:18px">
+      <div style="position:relative;flex:1;max-width:420px"><i class="ti ti-search" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#56708a;font-size:18px"></i><input placeholder="Buscar visitante, ticket, patente…" style="width:100%;padding:11px 14px 11px 42px;border:1px solid #1E3048;border-radius:11px;background:#0A1622;color:#E6EEF5;font-family:Inter;font-size:14px;outline:none"></div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:16px">
+        <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(45,189,126,.15);border:1px solid rgba(45,189,126,.3);color:#2DBD7E;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;padding:7px 13px;border-radius:999px"><span style="width:8px;height:8px;border-radius:50%;background:#2DBD7E"></span>Parque ABIERTO</span>
+        <span style="font-family:Inter;font-weight:700;font-size:14px;color:#9FB3C6;font-variant-numeric:tabular-nums">{{ clock }}</span>
+        <span style="position:relative;color:#9FB3C6;cursor:pointer"><i class="ti ti-bell" style="font-size:21px"></i><span style="position:absolute;top:-4px;right:-4px;width:16px;height:16px;border-radius:50%;background:#FF5F5F;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">3</span></span>
+        <span style="display:flex;align-items:center;gap:9px"><span style="width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#29ABE2,#1A7DAF);display:flex;align-items:center;justify-content:center;font-family:Poppins,sans-serif;font-weight:700;font-size:13px">AD</span><i class="ti ti-chevron-down" style="font-size:16px;color:#56708a"></i></span>
+      </div>
+    </header>
+
+    <main style="padding:clamp(18px,3vw,30px);display:flex;flex-direction:column;gap:22px">
+      <div><h1 style="margin:0;font-family:Poppins,sans-serif;font-weight:800;font-size:26px;color:#fff">Dashboard ejecutivo</h1><p style="margin:5px 0 0;color:#5E7790;font-size:14px">Resumen operativo en tiempo real · Hoy</p></div>
+
+      <!-- KPIs -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px">
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5E7790;letter-spacing:.04em;text-transform:uppercase">Visitantes</span><i class="ti ti-users" style="color:#29ABE2;font-size:18px"></i></div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:32px;color:#29ABE2;margin-top:8px;font-variant-numeric:tabular-nums">{{ visitors }}</div><div style="font-size:12.5px;color:#2DBD7E;margin-top:4px">▲ 12% vs ayer</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5E7790;letter-spacing:.04em;text-transform:uppercase">Ocupación</span><i class="ti ti-gauge" style="color:#29ABE2;font-size:18px"></i></div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:32px;color:#fff;margin-top:8px">68%</div><div style="height:6px;border-radius:999px;background:#1E3048;margin-top:10px;overflow:hidden"><div style="height:100%;width:68%;background:linear-gradient(90deg,#29ABE2,#1A7DAF);border-radius:999px"></div></div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5E7790;letter-spacing:.04em;text-transform:uppercase">Ingresos</span><i class="ti ti-cash" style="color:#29ABE2;font-size:18px"></i></div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:30px;color:#fff;margin-top:8px;font-variant-numeric:tabular-nums">$482,3M</div><div style="font-size:12.5px;color:#2DBD7E;margin-top:4px">▲ 8% vs ayer</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5E7790;letter-spacing:.04em;text-transform:uppercase">Tickets</span><i class="ti ti-ticket" style="color:#29ABE2;font-size:18px"></i></div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:32px;color:#fff;margin-top:8px;font-variant-numeric:tabular-nums">5.210</div><div style="font-size:12.5px;color:#5E7790;margin-top:4px">2.847 online</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5E7790;letter-spacing:.04em;text-transform:uppercase">Espera prom.</span><i class="ti ti-clock" style="color:#29ABE2;font-size:18px"></i></div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:32px;color:#fff;margin-top:8px">18 min</div><div style="font-size:12.5px;color:#2DBD7E;margin-top:4px">▼ 3 min vs ayer</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5E7790;letter-spacing:.04em;text-transform:uppercase">NPS hoy</span><i class="ti ti-mood-smile" style="color:#2DBD7E;font-size:18px"></i></div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:32px;color:#fff;margin-top:8px">78</div><div style="font-size:12.5px;color:#2DBD7E;margin-top:4px">🟢 Excelente</div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5E7790;letter-spacing:.04em;text-transform:uppercase">Estacionam.</span><i class="ti ti-parking" style="color:#29ABE2;font-size:18px"></i></div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:30px;color:#fff;margin-top:8px;font-variant-numeric:tabular-nums">847/1.200</div><div style="height:6px;border-radius:999px;background:#1E3048;margin-top:10px;overflow:hidden"><div style="height:100%;width:71%;background:linear-gradient(90deg,#FFB800,#FF8C00);border-radius:999px"></div></div></div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:16px;padding:20px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5E7790;letter-spacing:.04em;text-transform:uppercase">Alertas</span><i class="ti ti-alert-triangle" style="color:#FF8C00;font-size:18px"></i></div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:32px;color:#FF8C00;margin-top:8px">3</div><div style="font-size:12.5px;color:#5E7790;margin-top:4px">2 warn · 1 ok</div></div>
+      </div>
+
+      <!-- CHARTS ROW -->
+      <div style="display:grid;grid-template-columns:1.7fr 1fr;gap:22px">
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px;min-width:0">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:8px"><h3 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Flujo de visitantes</h3><div style="display:flex;gap:16px;font-size:12.5px"><span style="display:flex;align-items:center;gap:6px;color:#9FB3C6"><span style="width:14px;height:3px;background:#29ABE2;border-radius:2px"></span>Hoy</span><span style="display:flex;align-items:center;gap:6px;color:#5E7790"><span style="width:14px;height:3px;background:#56708a;border-radius:2px"></span>Semana pasada</span></div></div>
+          <div style="font-size:12.5px;color:#5E7790;margin-bottom:14px">Pico máximo: <strong style="color:#29ABE2">13:30 — 8.234 personas</strong></div>
+          <div style="height:280px"><canvas id="chartFlow"></canvas></div>
+        </div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px;min-width:0">
+          <h3 style="margin:0 0 14px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Mix de ventas</h3>
+          <div style="height:200px;position:relative"><canvas id="chartMix"></canvas></div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-top:18px">
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:13px"><span style="display:flex;align-items:center;gap:8px;color:#9FB3C6"><span style="width:11px;height:11px;border-radius:3px;background:#29ABE2"></span>Acqua Fun</span><span style="font-weight:700;color:#fff">2.847</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:13px"><span style="display:flex;align-items:center;gap:8px;color:#9FB3C6"><span style="width:11px;height:11px;border-radius:3px;background:#FF8C00"></span>Acqua Plus</span><span style="font-weight:700;color:#fff">1.890</span></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;font-size:13px"><span style="display:flex;align-items:center;gap:8px;color:#9FB3C6"><span style="width:11px;height:11px;border-radius:3px;background:#C9A84C"></span>Tribu VIP</span><span style="font-weight:700;color:#fff">473</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ALERTS + ZONES -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px">
+          <h3 style="margin:0 0 16px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Alertas en tiempo real</h3>
+          <div style="display:flex;flex-direction:column;gap:11px">
+            <div style="display:flex;align-items:center;gap:13px;padding:13px 15px;background:#0A1622;border:1px solid #1E3048;border-radius:12px;border-left:3px solid #FF5F5F"><span style="width:9px;height:9px;border-radius:50%;background:#FF5F5F;flex-shrink:0"></span><div style="flex:1;min-width:0"><div style="font-size:13.5px;color:#E6EEF5;font-weight:500">Chuncanas — Atracción C5 detenida por mantenimiento</div><div style="font-size:12px;color:#5E7790">13:42</div></div><button style="background:#FF5F5F;color:#fff;border:none;border-radius:8px;padding:7px 13px;font-family:Poppins,sans-serif;font-weight:600;font-size:12px;cursor:pointer">Resolver</button></div>
+            <div style="display:flex;align-items:center;gap:13px;padding:13px 15px;background:#0A1622;border:1px solid #1E3048;border-radius:12px;border-left:3px solid #FFB800"><span style="width:9px;height:9px;border-radius:50%;background:#FFB800;flex-shrink:0"></span><div style="flex:1;min-width:0"><div style="font-size:13.5px;color:#E6EEF5;font-weight:500">Estacionamiento Sector A al 95% de capacidad</div><div style="font-size:12px;color:#5E7790">13:15</div></div><button style="background:#13263a;color:#9FB3C6;border:1px solid #1E3048;border-radius:8px;padding:7px 13px;font-family:Poppins,sans-serif;font-weight:600;font-size:12px;cursor:pointer">Ver</button></div>
+            <div style="display:flex;align-items:center;gap:13px;padding:13px 15px;background:#0A1622;border:1px solid #1E3048;border-radius:12px;border-left:3px solid #2DBD7E"><span style="width:9px;height:9px;border-radius:50%;background:#2DBD7E;flex-shrink:0"></span><div style="flex:1;min-width:0"><div style="font-size:13.5px;color:#E6EEF5;font-weight:500">Piscina de Olas operativa tras breve interrupción</div><div style="font-size:12px;color:#5E7790">12:58</div></div><span style="color:#2DBD7E;font-size:12px;font-weight:600">OK</span></div>
+          </div>
+        </div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px">
+          <h3 style="margin:0 0 16px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Ocupación por zona</h3>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span style="color:#9FB3C6">Zona de Ondas</span><span style="color:#fff;font-weight:600">86%</span></div><div style="height:8px;border-radius:999px;background:#1E3048;overflow:hidden"><div style="height:100%;width:86%;background:#FF5F5F;border-radius:999px"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span style="color:#9FB3C6">Chuncanas</span><span style="color:#fff;font-weight:600">74%</span></div><div style="height:8px;border-radius:999px;background:#1E3048;overflow:hidden"><div style="height:100%;width:74%;background:#FFB800;border-radius:999px"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span style="color:#9FB3C6">Cala Ansenuza</span><span style="color:#fff;font-weight:600">67%</span></div><div style="height:8px;border-radius:999px;background:#1E3048;overflow:hidden"><div style="height:100%;width:67%;background:#FFB800;border-radius:999px"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span style="color:#9FB3C6">La Noria</span><span style="color:#fff;font-weight:600">52%</span></div><div style="height:8px;border-radius:999px;background:#1E3048;overflow:hidden"><div style="height:100%;width:52%;background:#2DBD7E;border-radius:999px"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:5px"><span style="color:#9FB3C6">Uritorkia</span><span style="color:#fff;font-weight:600">38%</span></div><div style="height:8px;border-radius:999px;background:#1E3048;overflow:hidden"><div style="height:100%;width:38%;background:#2DBD7E;border-radius:999px"></div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WEATHER + PROJECTION -->
+      <div style="display:grid;grid-template-columns:1fr 1.7fr;gap:22px">
+        <div style="background:linear-gradient(135deg,#1A7DAF,#0F2034);border:1px solid #1E3048;border-radius:18px;padding:24px">
+          <div style="display:flex;align-items:center;justify-content:space-between"><div><div style="font-size:13px;color:#9FB3C6">Córdoba · ahora</div><div style="font-family:Poppins,sans-serif;font-weight:800;font-size:38px;color:#fff">31°</div></div><i class="ti ti-sun-high" style="font-size:54px;color:#FFB800"></i></div>
+          <div style="display:flex;gap:18px;margin-top:10px;font-size:13px;color:#9FB3C6"><span>Humedad 48%</span><span>Lluvia 35%</span></div>
+          <div style="margin-top:16px;padding:12px 14px;border-radius:12px;background:rgba(255,140,0,.15);border:1px solid rgba(255,140,0,.3);font-size:12.5px;color:#FFD9A8">⚠️ Posible lluvia 16:30 · Seguros vendidos hoy: 847</div>
+        </div>
+        <div style="background:#0F2034;border:1px solid #1E3048;border-radius:18px;padding:24px">
+          <h3 style="margin:0 0 6px;font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#fff">Proyección de la temporada</h3>
+          <div style="font-size:13px;color:#5E7790;margin-bottom:16px">Objetivo: 450.000 visitantes · Acumulado: 87.420 (19%)</div>
+          <div style="height:16px;border-radius:999px;background:#1E3048;overflow:hidden;margin-bottom:8px"><div style="height:100%;width:19%;background:linear-gradient(90deg,#29ABE2,#1A7DAF);border-radius:999px"></div></div>
+          <div style="display:flex;align-items:center;gap:9px;margin-top:14px;padding:12px 14px;border-radius:12px;background:rgba(255,140,0,.12);font-size:13px;color:#FFD9A8"><i class="ti ti-trending-up" style="font-size:18px"></i>Proyección final: <strong>412.000</strong> visitantes — por debajo del objetivo ⚠️</div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state={ clock:'--:--:--', visitors:4782 };
+  componentDidMount(){
+    this.tick();
+    this._clk=setInterval(()=>this.tick(),1000);
+    this._sim=setInterval(()=>{ this.setState(s=>({ visitors: Math.max(0, s.visitors + (Math.floor(Math.random()*10)-3)) })); },4000);
+    this.initCharts();
+    this._lh=()=>this.forceUpdate(); window.addEventListener('infinito:lang',this._lh);
+  }
+  componentWillUnmount(){ clearInterval(this._clk); clearInterval(this._sim); if(this._lh) window.removeEventListener('infinito:lang',this._lh); if(this._cf)this._cf.destroy(); if(this._cm)this._cm.destroy(); }
+  tick(){ this.setState({ clock:new Date().toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit',second:'2-digit'}) }); }
+  initCharts(){
+    const wait=()=>{
+      if(typeof Chart==='undefined'){ setTimeout(wait,150); return; }
+      if(this._done) return; this._done=true;
+      Chart.defaults.font.family='Inter'; Chart.defaults.color='#5E7790';
+      const fc=document.getElementById('chartFlow');
+      if(fc){
+        const ctx=fc.getContext('2d');
+        const g=ctx.createLinearGradient(0,0,0,280); g.addColorStop(0,'rgba(41,171,226,.35)'); g.addColorStop(1,'rgba(41,171,226,0)');
+        const labels=['9','10','11','12','13','14','15','16','17','18','19','20'];
+        this._cf=new Chart(ctx,{ type:'line', data:{ labels, datasets:[
+          { label:'Hoy', data:[1200,2600,4100,6200,8234,7600,6900,6100,5200,4100,2600,1400], borderColor:'#29ABE2', backgroundColor:g, fill:true, tension:.4, borderWidth:2.5, pointRadius:0, pointHoverRadius:5, pointHoverBackgroundColor:'#29ABE2' },
+          { label:'Semana pasada', data:[1000,2200,3500,5200,7100,6700,6000,5400,4500,3500,2200,1200], borderColor:'#56708a', borderDash:[5,5], fill:false, tension:.4, borderWidth:1.8, pointRadius:0 }
+        ]}, options:{ responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{ backgroundColor:'#1A3A5C', titleColor:'#29ABE2', bodyColor:'#fff', padding:12, cornerRadius:8 } }, scales:{ x:{ grid:{color:'rgba(255,255,255,.04)'} }, y:{ grid:{color:'rgba(255,255,255,.04)'}, ticks:{ callback:v=>v>=1000?(v/1000)+'k':v } } } } });
+      }
+      const mc=document.getElementById('chartMix');
+      if(mc){
+        this._cm=new Chart(mc.getContext('2d'),{ type:'doughnut', data:{ labels:['Acqua Fun','Acqua Plus','Tribu VIP'], datasets:[{ data:[2847,1890,473], backgroundColor:['#29ABE2','#FF8C00','#C9A84C'], borderColor:'#0F2034', borderWidth:3 }] }, options:{ responsive:true, maintainAspectRatio:false, cutout:'68%', plugins:{ legend:{display:false}, tooltip:{ backgroundColor:'#1A3A5C', bodyColor:'#fff', padding:10, cornerRadius:8 } } } });
+      }
+    };
+    wait();
+  }
+  renderVals(){ return { clock:this.state.clock, visitors:this.state.visitors.toLocaleString('es-AR') }; }
+}
+</script>
+</body>
+</html>
