@@ -90,7 +90,7 @@
       'El Parque': 'The Park', 'Quiénes somos': 'About us', 'Las 7 zonas': 'The 7 zones', 'Noticias': 'News',
       'Tipos de entrada': 'Ticket types', 'Grupos y colegios': 'Groups and schools', 'Promociones': 'Promotions',
       'Información': 'Information', 'Estacionamiento': 'Parking', 'Preguntas frecuentes': 'FAQ',
-      'Reglamento': 'Rules', '© 2026 Infinito Water Park. Todos los derechos reservados.': '© 2026 Infinito Water Park. All rights reserved.',
+      'Reglamento': 'Rules', 'Acceso staff': 'Staff access', '© 2026 Infinito Water Park. Todos los derechos reservados.': '© 2026 Infinito Water Park. All rights reserved.',
       'Política de privacidad': 'Privacy policy', 'Términos': 'Terms', '¿Tenés dudas?': 'Need help?',
       // ---- Tickets page ----
       'Comprá tus entradas': 'Buy your tickets', 'Alta demanda este fin de semana': 'High demand this weekend',
@@ -335,7 +335,7 @@
       'El Parque': 'O Parque', 'Quiénes somos': 'Quem somos', 'Las 7 zonas': 'As 7 zonas', 'Noticias': 'Notícias',
       'Tipos de entrada': 'Tipos de ingresso', 'Grupos y colegios': 'Grupos e escolas', 'Promociones': 'Promoções',
       'Información': 'Informações', 'Estacionamiento': 'Estacionamento', 'Preguntas frecuentes': 'Perguntas frequentes',
-      'Reglamento': 'Regulamento', '© 2026 Infinito Water Park. Todos los derechos reservados.': '© 2026 Infinito Water Park. Todos os direitos reservados.',
+      'Reglamento': 'Regulamento', 'Acceso staff': 'Acesso staff', '© 2026 Infinito Water Park. Todos los derechos reservados.': '© 2026 Infinito Water Park. Todos os direitos reservados.',
       'Política de privacidad': 'Política de privacidade', 'Términos': 'Termos', '¿Tenés dudas?': 'Precisa de ajuda?',
       'Comprá tus entradas': 'Compre seus ingressos', 'Alta demanda este fin de semana': 'Alta procura neste fim de semana',
       'Seleccioná la fecha': 'Selecione a data',
